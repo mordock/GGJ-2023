@@ -1377,6 +1377,7 @@ MonoBehaviour:
   baseSpawnCounter: 5
   difficultyTimer: 30
   baseDifficultyTimer: 30
+  Enemy: {fileID: 0}
 --- !u!1001 &739313072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2124,6 +2125,7 @@ MonoBehaviour:
   beetOne: {fileID: 2128046594821936670, guid: 1bf2830dea77b5b46be1f669d1a86411, type: 3}
   grapeOne: {fileID: 2238070584925494066, guid: e37177633e9b20143b40b2236147d939, type: 3}
   blueOne: {fileID: 4401593762084179088, guid: 32c9601a2efe2044fb2649e6944cdf54, type: 3}
+  farmEmpty: {fileID: 0}
 --- !u!114 &1057821514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3200,6 +3202,7 @@ MonoBehaviour:
   baseSpawnCounter: 5
   difficultyTimer: 30
   baseDifficultyTimer: 30
+  Enemy: {fileID: 0}
 --- !u!1 &1563755936
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,6 +3379,7 @@ MonoBehaviour:
   baseSpawnCounter: 5
   difficultyTimer: 30
   baseDifficultyTimer: 30
+  Enemy: {fileID: 0}
 --- !u!4 &1579682652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9147267608507839407, guid: f960105465dc003488666408362d8f2b, type: 3}
