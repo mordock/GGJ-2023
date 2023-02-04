@@ -44,7 +44,7 @@ public class CheckFarmTile : MonoBehaviour
                                 GameObject tile = Instantiate(vegetableOption, farmPanel.transform.GetChild(0));
                                 //fill in values of tile
                                 tile.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = vegetable.multipleVegetableName;
-                                tile.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "Amount: " + vegetable.currentNumber;
+                                tile.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "Amount: " + vegetable.currentSeedNumber;
                                 tile.transform.GetChild(0).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = "Press: " + pressValue;
                                 pressValue++;
                             }
