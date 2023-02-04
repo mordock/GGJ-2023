@@ -47,5 +47,5 @@ MonoBehaviour:
   vegetableName: Beet
   multipleVegetableName: Beets
   currentSeedNumber: 3
-  currentAmmoNumber: 50
+  currentAmmoNumber: 70
   unlocked: 1
