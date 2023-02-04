@@ -16,14 +16,15 @@ public class BulletScript : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider collider)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collider.gameObject.name.Equals("Enemy"))
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.tag.Equals("Enemy"))
         {
-            collider.gameObject.SendMessage("OnHit", bulletDamage);
-            Destroy(this.gameObject);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
-        if (collider.gameObject.tag == "Hitbox")
+        if (collision.gameObject.tag == "Hitbox")
         {
             Destroy(this.gameObject);
         }

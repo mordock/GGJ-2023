@@ -8136,6 +8136,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farm_Ground_Beet_3
       objectReference: {fileID: 0}
+    - target: {fileID: 6538176789660756371, guid: ae78d4ef9cb1af748b942eb32a36de1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.096
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538176789660756371, guid: ae78d4ef9cb1af748b942eb32a36de1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae78d4ef9cb1af748b942eb32a36de1b, type: 3}
 --- !u!4 &1758503839 stripped
