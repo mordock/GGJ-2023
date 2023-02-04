@@ -17,7 +17,6 @@ public class playerHealth : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(health);
     }
 
     public void Hit(float damage)
