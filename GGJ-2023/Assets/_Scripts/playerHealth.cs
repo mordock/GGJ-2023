@@ -1,40 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour
 {
-
-    public CapsuleCollider player;
-
-    public float health;
-    private float baseInvincibilityTime = 1;
+    public float health = 1;
     private float invincibilityTimer;
+    public Slider slider; 
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<CapsuleCollider>();
 
     }
 
     void Update()
     {
-        if (invincibilityTimer > 0)
-        {
-            invincibilityTimer -= Time.fixedDeltaTime;
-        }
+        Debug.Log(health);
     }
 
-    public void OnHit(float damage)
+    public void Hit(float damage)
     {
-        if (invincibilityTimer <= 0)
-        {
-            health -= damage;
-        }
+        health -= damage;
+        UpdateHealthBar();
 
         if (health <= 0)
         {
             Debug.Log("Game Over");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    public void UpdateHealthBar() {
+        slider.value = health;
     }
 }

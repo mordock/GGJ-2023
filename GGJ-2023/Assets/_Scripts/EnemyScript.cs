@@ -9,7 +9,6 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyScript : MonoBehaviour
 {
     private Transform FarmTile;
-    private Rigidbody rb;
     private Transform Player;
 
     private float speed = 5;
@@ -25,109 +24,93 @@ public class EnemyScript : MonoBehaviour
     private float baseInvincibilityTime = 1;
     private float invincibilityTimer;
 
-    private float knockbackForce = 10f;
-    private float knockbackDelay = 0.15f;
+    private bool noHit = false;
+    private Vector3 previousPos;
 
-    public UnityEvent KnockbackBegin, KnockbackDone;
-
-
-    void Start()
-    {
+    void Start() {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
-        rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
-    {
+    void Update() {
         //Calculate distance from targets to enemy
         float farmDist = Vector3.Distance(transform.position, FarmTile.position);
         float playerDist = Vector3.Distance(transform.position, Player.position);
 
         //Decide target based on several factors
-        if (farmDist > stoppingDistance && playerTargetLinger <= 0)
-        {
+        if (farmDist > stoppingDistance && playerTargetLinger <= 0) {
             transform.position = Vector3.MoveTowards(transform.position, FarmTile.position, speed * Time.deltaTime);
             transform.LookAt(FarmTile);
         }
 
-        if (playerTargetLinger > 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, Player.position, speed * Time.deltaTime); 
+        if (playerTargetLinger > 0) {
+            transform.position = Vector3.MoveTowards(transform.position, Player.position, speed * Time.deltaTime);
             transform.LookAt(Player);
         }
 
-        if (playerDist <= aggroDistance)
-        {
+        if (playerDist <= aggroDistance) {
             playerTargetLinger = basePlayerTargetLinger;
         }
 
-        if (FarmTile == null)
-        {
+        if (FarmTile == null) {
             playerTargetLinger = basePlayerTargetLinger;
         }
 
-        if (playerTargetLinger > 0)
-        {
+        if (playerTargetLinger > 0) {
             playerTargetLinger -= Time.fixedDeltaTime;
         }
 
-        if (attackTimer > 0)
-        {
+        if (attackTimer > 0) {
             attackTimer -= Time.fixedDeltaTime;
         }
 
         //Limit hits through a cooldown timer
-        if (invincibilityTimer > 0)
-        {
+        if (invincibilityTimer > 0) {
             invincibilityTimer -= Time.fixedDeltaTime;
         }
-    }
-    
-    void OnTriggerStay(Collider collider)
-    {
 
-        if (attackTimer <= 0)
-        {
-            if (collider.gameObject.name.Equals("Player") || collider.gameObject.name.Equals("Farm"))
-            {
+        //force not moving after hit to give player a chance
+        if (noHit) {
+            transform.position = previousPos;
+            previousPos = transform.position;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        Debug.Log(collision.gameObject.name);
+
+        if (!noHit) {
+            if (collision.gameObject.tag.Equals("Player")) {
+                collision.gameObject.GetComponent<playerHealth>().Hit(.21f);
+                noHit = true;
+                StartCoroutine(WaitForNextHit(2));
+            }
+        }
+    }
+
+    IEnumerator WaitForNextHit(int secs) {
+        yield return new WaitForSeconds(secs);
+        noHit = false;
+    }
+
+    void OnTriggerStay(Collider collider) {
+        if (attackTimer <= 0) {
+            if (collider.gameObject.name.Equals("Player") || collider.gameObject.name.Equals("Farm")) {
                 collider.SendMessage("OnHit", enemyDamage);
             }
             attackTimer = baseAttackTimer;
         }
     }
 
-    public void OnHit(float damage)
-    {
+    public void OnHit(float damage) {
 
-        if (invincibilityTimer <= 0)
-        {
+        if (invincibilityTimer <= 0) {
             health -= damage;
             playerTargetLinger = basePlayerTargetLinger * 2;
-            KnockbackFeedback();
             invincibilityTimer = baseInvincibilityTime;
         }
-        if (health <= 0)
-        {
+        if (health <= 0) {
             Destroy(gameObject);
         }
     }
-
-    public void KnockbackFeedback()
-    {
-        StopAllCoroutines();
-        KnockbackBegin?.Invoke();
-        Vector2 direction = (transform.position - Player.transform.position).normalized;
-        rb.AddForce(direction * knockbackForce, ForceMode.Impulse);
-        StartCoroutine(KnockbackReset());
-    }
-
-    private IEnumerator KnockbackReset()
-    {
-        yield return new WaitForSeconds(knockbackDelay);
-        rb.velocity = Vector3.zero;
-        KnockbackDone?.Invoke();
-    }
-
-
 }

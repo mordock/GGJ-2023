@@ -21,9 +21,7 @@ public class CheckFarmTile : MonoBehaviour
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit)) {
-            Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.gameObject.tag.Equals("FarmTile")) {
-                Debug.Log("hit");
                 if (Input.GetKeyDown(KeyCode.E)) {
                     //this doens't check for distance, I know, shut up
                     //open ui
