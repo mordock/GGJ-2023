@@ -899,6 +899,13 @@ MonoBehaviour:
   bulletSpeed: 5
   bulletCooldown: 1
   bulletreleaselimit: 5
+  carrotCooldown: 0
+  potatoCooldown: 0
+  unionCooldown: 0
+  beetCooldown: 0
+  blueberryCooldown: 0
+  grapeCooldown: 0
+  currentAmmo: {fileID: 0}
 --- !u!1 &1713313146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,6 +1211,13 @@ MonoBehaviour:
   bulletSpeed: 20
   bulletCooldown: 300
   bulletreleaselimit: 20
+  carrotCooldown: 300
+  potatoCooldown: 500
+  unionCooldown: 200
+  beetCooldown: 100
+  blueberryCooldown: 30
+  grapeCooldown: 150
+  currentAmmo: {fileID: 0}
 --- !u!114 &1870896140
 MonoBehaviour:
   m_ObjectHideFlags: 0
