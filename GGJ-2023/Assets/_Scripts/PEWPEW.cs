@@ -17,6 +17,9 @@ public class PEWPEW : MonoBehaviour
     public float bulletCooldown = 0;
     public float bulletreleaselimit = 0;
 
+    public Vegetable currentvegetable;
+
+
 
     public void FixedUpdate()
     {
