@@ -40,6 +40,14 @@ public class PEWPEW : MonoBehaviour
     public int blueberryCooldown;
     public int grapeCooldown;
 
+    [Header("UI Elements")]
+    public GameObject carrotSelected;
+    public GameObject potatoSelected;
+    public GameObject onionSelected;
+    public GameObject beetSelected;
+    public GameObject blueberrySelected;
+    public GameObject grapeSelected;
+
     public Vegetable currentAmmo;
     private List<Vegetable> vegetables;
 
@@ -48,10 +56,11 @@ public class PEWPEW : MonoBehaviour
 
     private void Start() {
         vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
+        currentAmmo = vegetables[0];
     }
     public void FixedUpdate() {
         bulletCooldown++;
-        if(bulletCooldown >= currentCooldown) {
+        if (bulletCooldown >= currentCooldown) {
             canShoot = true;
         }
     }
@@ -59,16 +68,28 @@ public class PEWPEW : MonoBehaviour
         //fix with extra rule so it doesn't mess with farm tiles
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             currentAmmo = vegetables[1];
-        }else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            TurnOffAllSelectedUI();
+            carrotSelected.SetActive(true);
+        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
             currentAmmo = vegetables[3];
+            TurnOffAllSelectedUI();
+            potatoSelected.SetActive(true);
         } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
             currentAmmo = vegetables[2];
+            TurnOffAllSelectedUI();
+            onionSelected.SetActive(true);
         } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
             currentAmmo = vegetables[0];
+            TurnOffAllSelectedUI();
+            beetSelected.SetActive(true);
         } else if (Input.GetKeyDown(KeyCode.Alpha5)) {
             currentAmmo = vegetables[4];
+            TurnOffAllSelectedUI();
+            grapeSelected.SetActive(true);
         } else if (Input.GetKeyDown(KeyCode.Alpha6)) {
             currentAmmo = vegetables[5];
+            TurnOffAllSelectedUI();
+            blueberrySelected.SetActive(true);
         }
 
         if (Input.GetMouseButtonDown(0)) {
@@ -122,22 +143,29 @@ public class PEWPEW : MonoBehaviour
                     canShoot = false;
                     currentCooldown = grapeCooldown;
                 }
+
+                if (canShoot && currentAmmo.vegetableName.Equals("Blue Berry")) {
+                    var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
+                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * blueberrySpeed;
+                    bullet.GetComponent<BulletScript>().bulletDamage = blueberryDamage;
+
+                    bulletCooldown = 0;
+                    canShoot = false;
+                    currentCooldown = blueberryCooldown;
+                }
             }
         }
-        if (Input.GetMouseButton(0))
-        {
-            if (canShoot && currentAmmo.vegetableName.Equals("Blue Berry"))
-            {
-                var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * blueberrySpeed;
-                bullet.GetComponent<BulletScript>().bulletDamage = blueberryDamage;
+        //if (Input.GetMouseButton(0)) {
+        //    if (canShoot && currentAmmo.vegetableName.Equals("Blue Berry")) {
+        //        var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        //        bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * blueberrySpeed;
+        //        bullet.GetComponent<BulletScript>().bulletDamage = blueberryDamage;
 
-                bulletCooldown = 0;
-                canShoot = false;
-                currentCooldown = blueberryCooldown;
-            }
-
-        }
+        //        bulletCooldown = 0;
+        //        canShoot = false;
+        //        currentCooldown = blueberryCooldown;
+        //    }
+        //}
 
         ////CARROT GUN
         //if (bulletCooldown >= bulletreleaselimit * 300) {
@@ -192,6 +220,15 @@ public class PEWPEW : MonoBehaviour
         //        bulletCooldown = 0;
         //    }
         //}
+    }
+
+    void TurnOffAllSelectedUI() {
+        carrotSelected.SetActive(false);
+        potatoSelected.SetActive(false);
+        onionSelected.SetActive(false);
+        beetSelected.SetActive(false);
+        blueberrySelected.SetActive(false);
+        grapeSelected.SetActive(false);
     }
 }
 
