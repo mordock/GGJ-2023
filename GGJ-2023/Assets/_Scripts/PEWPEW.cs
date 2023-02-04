@@ -15,14 +15,27 @@ public class PEWPEW : MonoBehaviour
     public GameObject Grape;
 
     [Header("bullet values")]
-    public float bulletSpeed = 0;
+    public float carrotSpeed = 80;
+    public float potatoSpeed = 12;
+    public float onionSpeed = 20;
+    public float beetSpeed = 20;
+    public float blueberrySpeed = 30;
+    public float grapeSpeed = 30;
+
+    public float carrotDamage = 20;
+    public float potatoDamage = 15;
+    public float onionDamage = 10;
+    public float beetDamage = 10;
+    public float blueberryDamage = 3;
+    public float grapeDamage = 5;
+
     public float bulletCooldown = 0;
     public float bulletreleaselimit = 0;
 
     [Header("cooldowns")]
     public int carrotCooldown;
     public int potatoCooldown;
-    public int unionCooldown;
+    public int onionCooldown;
     public int beetCooldown;
     public int blueberryCooldown;
     public int grapeCooldown;
@@ -61,8 +74,9 @@ public class PEWPEW : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             if (canShoot) {
                 if (currentAmmo.vegetableName.Equals("Carrot")) {
-                    var bullet = Instantiate(Carrot, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+                    var bullet = Instantiate(Carrot, ProjectileSpawn.position, ProjectileSpawn.rotation * Quaternion.Euler(-90f, 0f, 0f));
+                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * carrotSpeed;
+                    bullet.GetComponent<BulletScript>().bulletDamage = carrotDamage;
 
                     bulletCooldown = 0;
                     canShoot = false;
@@ -71,43 +85,38 @@ public class PEWPEW : MonoBehaviour
 
                 if (currentAmmo.vegetableName.Equals("Potato")) {
                     var bullet = Instantiate(Potato, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * potatoSpeed;
+                    bullet.GetComponent<BulletScript>().bulletDamage = potatoDamage;
 
                     bulletCooldown = 0;
                     canShoot = false;
                     currentCooldown = potatoCooldown;
                 }
 
-                if (currentAmmo.vegetableName.Equals("Union")) {
+                if (currentAmmo.vegetableName.Equals("Onion")) {
                     var bullet = Instantiate(Union, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * onionSpeed;
+                    bullet.GetComponent<BulletScript>().bulletDamage = onionDamage;
 
                     bulletCooldown = 0;
                     canShoot = false;
-                    currentCooldown = unionCooldown;
+                    currentCooldown = onionCooldown;
                 }
 
                 if (currentAmmo.vegetableName.Equals("Beet")) {
                     var bullet = Instantiate(Beet, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * beetSpeed;
+                    bullet.GetComponent<BulletScript>().bulletDamage = beetDamage;
 
                     bulletCooldown = 0;
                     canShoot = false;
                     currentCooldown = beetCooldown;
                 }
 
-                if (currentAmmo.vegetableName.Equals("Blue Berry")) {
-                    var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
-
-                    bulletCooldown = 0;
-                    canShoot = false;
-                    currentCooldown = blueberryCooldown;
-                }
-
                 if (currentAmmo.vegetableName.Equals("Grape")) {
                     var bullet = Instantiate(Grape, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * grapeSpeed;
+                    bullet.GetComponent<BulletScript>().bulletDamage = grapeDamage;
 
                     bulletCooldown = 0;
                     canShoot = false;
@@ -115,61 +124,74 @@ public class PEWPEW : MonoBehaviour
                 }
             }
         }
-
-
-        //CARROT GUN
-        if (bulletCooldown >= bulletreleaselimit * 300) {
-            if (Input.GetMouseButtonDown(0)) {
-                var bullet = Instantiate(Carrot, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
-                bulletCooldown = 0;
-            }
-        }
-
-        //POTATO GUN
-        if (bulletCooldown >= bulletreleaselimit * 500) {
-            if (Input.GetMouseButtonDown(0)) {
-                var bullet = Instantiate(Potato, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
-                bulletCooldown = 0;
-            }
-        }
-
-        //UNION GUN
-        if (bulletCooldown >= bulletreleaselimit * 200) {
-            if (Input.GetMouseButtonDown(0)) {
-                var bullet = Instantiate(Union, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
-                bulletCooldown = 0;
-            }
-        }
-
-        //BEET GUN
-        if (bulletCooldown >= bulletreleaselimit * 100) {
-            if (Input.GetMouseButtonDown(0)) {
-                var bullet = Instantiate(Beet, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
-                bulletCooldown = 0;
-            }
-        }
-
-        //BLUEBERRY GUN
-        if (bulletCooldown >= bulletreleaselimit * 30) {
-            if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButton(0))
+        {
+            if (canShoot && currentAmmo.vegetableName.Equals("Blue Berry"))
+            {
                 var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+                bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * blueberrySpeed;
+                bullet.GetComponent<BulletScript>().bulletDamage = blueberryDamage;
+
                 bulletCooldown = 0;
+                canShoot = false;
+                currentCooldown = blueberryCooldown;
             }
+
         }
 
-        //GRAPE GUN
-        if (bulletCooldown >= bulletreleaselimit * 150) {
-            if (Input.GetMouseButtonDown(0)) {
-                var bullet = Instantiate(Grape, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
-                bulletCooldown = 0;
-            }
-        }
+        ////CARROT GUN
+        //if (bulletCooldown >= bulletreleaselimit * 300) {
+        //    if (Input.GetMouseButtonDown(0)) {
+        //        var bullet = Instantiate(Carrot, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        //        bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+        //        bulletCooldown = 0;
+        //    }
+        //}
+
+        ////POTATO GUN
+        //if (bulletCooldown >= bulletreleaselimit * 500) {
+        //    if (Input.GetMouseButtonDown(0)) {
+        //        var bullet = Instantiate(Potato, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        //        bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+        //        bulletCooldown = 0;
+        //    }
+        //}
+
+        ////UNION GUN
+        //if (bulletCooldown >= bulletreleaselimit * 200) {
+        //    if (Input.GetMouseButtonDown(0)) {
+        //        var bullet = Instantiate(Union, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        //        bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+        //        bulletCooldown = 0;
+        //    }
+        //}
+
+        ////BEET GUN
+        //if (bulletCooldown >= bulletreleaselimit * 100) {
+        //    if (Input.GetMouseButtonDown(0)) {
+        //        var bullet = Instantiate(Beet, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        //        bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+        //        bulletCooldown = 0;
+        //    }
+        //}
+
+        ////BLUEBERRY GUN
+        //if (bulletCooldown >= bulletreleaselimit * 30) {
+        //    if (Input.GetMouseButtonDown(0)) {
+        //        var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        //        bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+        //        bulletCooldown = 0;
+        //    }
+        //}
+
+        ////GRAPE GUN
+        //if (bulletCooldown >= bulletreleaselimit * 150) {
+        //    if (Input.GetMouseButtonDown(0)) {
+        //        var bullet = Instantiate(Grape, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        //        bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * bulletSpeed;
+        //        bulletCooldown = 0;
+        //    }
+        //}
     }
 }
 
