@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FarmTile : MonoBehaviour
 {
+    public float Health = 20;
+
     public Vegetable currentVegetable;
     // Start is called before the first frame update
     void Start()
@@ -19,5 +21,14 @@ public class FarmTile : MonoBehaviour
 
     public void PlantTile(Vegetable vegetableToPlant) {
         currentVegetable = vegetableToPlant;
+    }
+
+    public void OnHit(float damage)
+    {
+        Health -= damage;
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Timer for spawning enemies
         if (spawnCounter > 0)
         {
             spawnCounter -= Time.fixedDeltaTime;
@@ -31,6 +32,7 @@ public class EnemySpawner : MonoBehaviour
             spawnCounter = baseSpawnCounter;
         }
          
+        //Timer for increasing difficulty of enemies and spawnrate
         if (difficultyTimer > 0)
         {
             difficultyTimer -= Time.fixedDeltaTime;

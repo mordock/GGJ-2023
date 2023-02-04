@@ -6,7 +6,10 @@ public class Vegetable : MonoBehaviour
 {
     public string vegetableName;
     public string multipleVegetableName;
-    public int currentNumber;
+
+    public int currentSeedNumber;
+    public int currentAmmoNumber;
+
     public bool unlocked;
     // Start is called before the first frame update
     void Start()
