@@ -5032,14 +5032,14 @@ MonoBehaviour:
   beetDamage: 10
   blueberryDamage: 3
   grapeDamage: 5
-  bulletCooldown: 0
-  bulletreleaselimit: 0
-  carrotCooldown: 0
-  potatoCooldown: 0
-  onionCooldown: 0
-  beetCooldown: 0
-  blueberryCooldown: 0
-  grapeCooldown: 0
+  bulletCooldown: 1
+  bulletreleaselimit: 1
+  carrotCooldown: 5
+  potatoCooldown: 5
+  onionCooldown: 5
+  beetCooldown: 5
+  blueberryCooldown: 5
+  grapeCooldown: 5
   carrotSelected: {fileID: 0}
   potatoSelected: {fileID: 0}
   onionSelected: {fileID: 0}
