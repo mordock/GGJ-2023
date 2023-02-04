@@ -27,7 +27,7 @@ public class VegetableList : MonoBehaviour
     public void IncreaseVegetableSeedNumber(string name, int amount) {
         foreach (Vegetable vegetable in vegetables) {
             if (vegetable.vegetableName.Equals(name)) {
-                vegetable.currentNumber += amount;
+                vegetable.currentSeedNumber += amount;
                 break;
             }
         }
@@ -36,7 +36,25 @@ public class VegetableList : MonoBehaviour
     public void DecreaseVegetableSeedNumber(string name, int amount) {
         foreach (Vegetable vegetable in vegetables) {
             if (vegetable.vegetableName.Equals(name)) {
-                vegetable.currentNumber -= amount;
+                vegetable.currentSeedNumber -= amount;
+                break;
+            }
+        }
+    }
+
+    public void IncreaseVegetableAmmoNumber(string name, int amount) {
+        foreach (Vegetable vegetable in vegetables) {
+            if (vegetable.vegetableName.Equals(name)) {
+                vegetable.currentAmmoNumber += amount;
+                break;
+            }
+        }
+    }
+
+    public void DecreaseVegetableAmmoNumber(string name, int amount) {
+        foreach (Vegetable vegetable in vegetables) {
+            if (vegetable.vegetableName.Equals(name)) {
+                vegetable.currentAmmoNumber -= amount;
                 break;
             }
         }
