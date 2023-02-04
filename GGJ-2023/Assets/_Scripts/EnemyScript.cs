@@ -9,23 +9,25 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyScript : MonoBehaviour
 {
     private Transform Farm;
-    public Rigidbody rb;
-    public Transform Player;
+    private Rigidbody rb;
+    private Transform Player;
 
     private float speed = 5;
     private bool inRange;
     private float stoppingDistance = 2.5f;
-    private float aggroDistance = 5f;
+    private float aggroDistance = 6f;
     private float playerTargetLinger = 0;
     private float basePlayerTargetLinger = 2;
 
     private float enemyDamage = 3;
     private float health = 8;
-    public float baseInvincibilityTime = 1;
-    public float invincibilityTimer;
+    public float attackTimer;
+    private float baseAttackTimer = 2;
+    private float baseInvincibilityTime = 1;
+    private float invincibilityTimer;
 
     private float knockbackForce = 10f;
-    public float knockbackDelay = 0.15f;
+    private float knockbackDelay = 0.15f;
 
     public UnityEvent KnockbackBegin, KnockbackDone;
 
@@ -39,18 +41,21 @@ public class EnemyScript : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(Farm);
+        //Calculate distance from targets to enemy
         float farmDist = Vector3.Distance(transform.position, Farm.position);
         float playerDist = Vector3.Distance(transform.position, Player.position);
 
+        //Decide target based on several factors
         if (farmDist > stoppingDistance && playerTargetLinger <= 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, Farm.position, speed * Time.deltaTime);
+            transform.LookAt(Farm);
         }
 
-        if (playerDist > stoppingDistance && playerTargetLinger > 0)
+        if (playerTargetLinger > 0)
         {
-            transform.position = Vector3.MoveTowards(transform.position, Player.position, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, Player.position, speed * Time.deltaTime); 
+            transform.LookAt(Player);
         }
 
         if (playerDist <= aggroDistance)
@@ -58,25 +63,38 @@ public class EnemyScript : MonoBehaviour
             playerTargetLinger = basePlayerTargetLinger;
         }
 
-        if (invincibilityTimer > 0)
+        if (Farm == null)
         {
-            invincibilityTimer -= Time.fixedDeltaTime;
+            playerTargetLinger = basePlayerTargetLinger;
         }
 
         if (playerTargetLinger > 0)
         {
             playerTargetLinger -= Time.fixedDeltaTime;
         }
-    }
 
-    void OnTriggerEnter2D(Collider2D collider)
+        if (attackTimer > 0)
+        {
+            attackTimer -= Time.fixedDeltaTime;
+        }
+
+        //Limit hits through a cooldown timer
+        if (invincibilityTimer > 0)
+        {
+            invincibilityTimer -= Time.fixedDeltaTime;
+        }
+    }
+    
+    void OnTriggerStay(Collider collider)
     {
-        if (inRange == true)
+
+        if (attackTimer <= 0)
         {
             if (collider.gameObject.name.Equals("Player") || collider.gameObject.name.Equals("Farm"))
             {
                 collider.SendMessage("OnHit", enemyDamage);
             }
+            attackTimer = baseAttackTimer;
         }
     }
 
