@@ -8,19 +8,18 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyScript : MonoBehaviour
 {
-    private Transform Farm;
+    private Transform FarmTile;
     private Rigidbody rb;
     private Transform Player;
 
     private float speed = 5;
-    private bool inRange;
     private float stoppingDistance = 2.5f;
     private float aggroDistance = 6f;
     private float playerTargetLinger = 0;
     private float basePlayerTargetLinger = 2;
 
     private float enemyDamage = 3;
-    private float health = 8;
+    private float health = 20;
     public float attackTimer;
     private float baseAttackTimer = 2;
     private float baseInvincibilityTime = 1;
@@ -35,21 +34,21 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        Farm = GameObject.FindGameObjectWithTag("Farm").transform;
+        FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         //Calculate distance from targets to enemy
-        float farmDist = Vector3.Distance(transform.position, Farm.position);
+        float farmDist = Vector3.Distance(transform.position, FarmTile.position);
         float playerDist = Vector3.Distance(transform.position, Player.position);
 
         //Decide target based on several factors
         if (farmDist > stoppingDistance && playerTargetLinger <= 0)
         {
-            transform.position = Vector3.MoveTowards(transform.position, Farm.position, speed * Time.deltaTime);
-            transform.LookAt(Farm);
+            transform.position = Vector3.MoveTowards(transform.position, FarmTile.position, speed * Time.deltaTime);
+            transform.LookAt(FarmTile);
         }
 
         if (playerTargetLinger > 0)
@@ -63,7 +62,7 @@ public class EnemyScript : MonoBehaviour
             playerTargetLinger = basePlayerTargetLinger;
         }
 
-        if (Farm == null)
+        if (FarmTile == null)
         {
             playerTargetLinger = basePlayerTargetLinger;
         }
@@ -106,12 +105,14 @@ public class EnemyScript : MonoBehaviour
             health -= damage;
             playerTargetLinger = basePlayerTargetLinger * 2;
             KnockbackFeedback();
+            invincibilityTimer = baseInvincibilityTime;
         }
         if (health <= 0)
         {
             Destroy(gameObject);
         }
     }
+
     public void KnockbackFeedback()
     {
         StopAllCoroutines();

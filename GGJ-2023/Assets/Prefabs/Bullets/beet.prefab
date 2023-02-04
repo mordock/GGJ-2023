@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 666766840464108876}
   - component: {fileID: 7856922969987811531}
   - component: {fileID: 3613277213610962980}
+  - component: {fileID: 5292272797290492056}
   m_Layer: 0
   m_Name: beet
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 147216103921104886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.5007696, y: 0.015421957, z: 3.5299063}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5697310647305855036}
   - {fileID: 7920319967616192036}
@@ -51,7 +52,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -68,8 +69,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f751f52ff15aef41a9ea4e54868c015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletDespawnTimer: 0
-  BulletDespawnDelay: 100
+  bulletDamage: 0
+--- !u!65 &5292272797290492056
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147216103921104886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1298523, y: 0.31921944, z: 0.11751723}
+  m_Center: {x: 0.2446847, y: 0.21214344, z: 0.0005778074}
 --- !u!1 &307379158358706807
 GameObject:
   m_ObjectHideFlags: 0
