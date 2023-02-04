@@ -30,16 +30,12 @@ public class EnemyScript : MonoBehaviour
 
     public UnityEvent KnockbackBegin, KnockbackDone;
 
-
-    void Start()
+    void Update()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
         rb = GetComponent<Rigidbody>();
-    }
 
-    void Update()
-    {
         //Calculate distance from targets to enemy
         float farmDist = Vector3.Distance(transform.position, FarmTile.position);
         float playerDist = Vector3.Distance(transform.position, Player.position);
@@ -89,7 +85,7 @@ public class EnemyScript : MonoBehaviour
 
         if (attackTimer <= 0)
         {
-            if (collider.gameObject.name.Equals("Player") || collider.gameObject.name.Equals("Farm"))
+            if (collider.gameObject.name.Equals("Player") || collider.gameObject.tag.Equals("FarmTile"))
             {
                 collider.SendMessage("OnHit", enemyDamage);
             }
