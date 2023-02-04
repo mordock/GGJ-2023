@@ -27,8 +27,6 @@ public class EnemyScript : MonoBehaviour
     private bool noHit = false;
     private Vector3 previousPos;
 
-    void Start() {
-
     List<GameObject> seedList = new List<GameObject>();
     public GameObject carrotSeed;
     public GameObject potatoSeed;
@@ -43,7 +41,6 @@ public class EnemyScript : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
-        rb = GetComponent<Rigidbody>();
 
         seedList.Add(carrotSeed);
         seedList.Add(potatoSeed);
@@ -53,6 +50,8 @@ public class EnemyScript : MonoBehaviour
         seedList.Add(grapeSeed);
     }
 
+    private void Update()
+    {
         //Calculate distance from targets to enemy
         float farmDist = Vector3.Distance(transform.position, FarmTile.position);
         float playerDist = Vector3.Distance(transform.position, Player.position);
