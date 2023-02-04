@@ -1946,7 +1946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  slider: {fileID: 0}
+  slider: {fileID: 2106965019}
 --- !u!114 &476922735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,7 +1982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileSpawn: {fileID: 1813258012}
-  slider: {fileID: 0}
+  slider: {fileID: 1335240237}
   Carrot: {fileID: 5942767767431770276, guid: 39f50487557f52f43a647c2f8a9d4364, type: 3}
   Potato: {fileID: 6730846482597628247, guid: a0f5b1d228a593945a171996b41f58d8, type: 3}
   Union: {fileID: 5438795797274079363, guid: 5fca98047fcecdf4386c0553fa6851c0, type: 3}
