@@ -27,15 +27,31 @@ public class EnemyScript : MonoBehaviour
     private bool noHit = false;
     private Vector3 previousPos;
 
-    void Start() {
+    List<GameObject> seedList = new List<GameObject>();
+    public GameObject carrotSeed;
+    public GameObject potatoSeed;
+    public GameObject beetSeed;
+    public GameObject onionSeed;
+    public GameObject blueberrySeed;
+    public GameObject grapeSeed;
 
-    }
 
-    void Update()
+
+    void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
 
+        seedList.Add(carrotSeed);
+        seedList.Add(potatoSeed);
+        seedList.Add(beetSeed);
+        seedList.Add(onionSeed);
+        seedList.Add(blueberrySeed);
+        seedList.Add(grapeSeed);
+    }
+
+    private void Update()
+    {
         //Calculate distance from targets to enemy
         float farmDist = Vector3.Distance(transform.position, FarmTile.position);
         float playerDist = Vector3.Distance(transform.position, Player.position);
@@ -99,7 +115,7 @@ public class EnemyScript : MonoBehaviour
     void OnTriggerStay(Collider collider) {
         if (attackTimer <= 0)
         {
-            if (collider.gameObject.name.Equals("Player") || collider.gameObject.tag.Equals("FarmTile"))
+            if (collider.gameObject.tag.Equals("Player") || collider.gameObject.tag.Equals("FarmTile"))
             {
                 collider.SendMessage("OnHit", enemyDamage);
             }
@@ -114,7 +130,10 @@ public class EnemyScript : MonoBehaviour
             playerTargetLinger = basePlayerTargetLinger * 2;
             invincibilityTimer = baseInvincibilityTime;
         }
-        if (health <= 0) {
+        if (health <= 0)
+        {
+            int randomSeed = UnityEngine.Random.Range(0, seedList.Count - 1);
+            Instantiate(seedList[randomSeed], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
