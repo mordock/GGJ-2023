@@ -28,11 +28,14 @@ public class EnemyScript : MonoBehaviour
     private Vector3 previousPos;
 
     void Start() {
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
-        FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
+
     }
 
-    void Update() {
+    void Update()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
+
         //Calculate distance from targets to enemy
         float farmDist = Vector3.Distance(transform.position, FarmTile.position);
         float playerDist = Vector3.Distance(transform.position, Player.position);
@@ -94,8 +97,10 @@ public class EnemyScript : MonoBehaviour
     }
 
     void OnTriggerStay(Collider collider) {
-        if (attackTimer <= 0) {
-            if (collider.gameObject.name.Equals("Player") || collider.gameObject.name.Equals("Farm")) {
+        if (attackTimer <= 0)
+        {
+            if (collider.gameObject.name.Equals("Player") || collider.gameObject.tag.Equals("FarmTile"))
+            {
                 collider.SendMessage("OnHit", enemyDamage);
             }
             attackTimer = baseAttackTimer;
