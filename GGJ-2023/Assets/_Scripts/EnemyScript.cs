@@ -30,12 +30,28 @@ public class EnemyScript : MonoBehaviour
 
     public UnityEvent KnockbackBegin, KnockbackDone;
 
+    List<GameObject> seedList = new List<GameObject>();
+    public GameObject carrotSeed;
+    public GameObject potatoSeed;
+    public GameObject beetSeed;
+    public GameObject onionSeed;
+    public GameObject blueberrySeed;
+    public GameObject grapeSeed;
+
+
 
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
         rb = GetComponent<Rigidbody>();
+
+        seedList.Add(carrotSeed);
+        seedList.Add(potatoSeed);
+        seedList.Add(beetSeed);
+        seedList.Add(onionSeed);
+        seedList.Add(blueberrySeed);
+        seedList.Add(grapeSeed);
     }
 
     void Update()
@@ -89,7 +105,7 @@ public class EnemyScript : MonoBehaviour
 
         if (attackTimer <= 0)
         {
-            if (collider.gameObject.name.Equals("Player") || collider.gameObject.name.Equals("Farm"))
+            if (collider.gameObject.tag.Equals("Player") || collider.gameObject.tag.Equals("FarmTile"))
             {
                 collider.SendMessage("OnHit", enemyDamage);
             }
@@ -109,6 +125,8 @@ public class EnemyScript : MonoBehaviour
         }
         if (health <= 0)
         {
+            int randomSeed = UnityEngine.Random.Range(0, seedList.Count - 1);
+            Instantiate(seedList[randomSeed], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

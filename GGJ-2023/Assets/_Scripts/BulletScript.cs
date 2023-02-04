@@ -18,7 +18,7 @@ public class BulletScript : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name.Equals("Enemy"))
+        if (collider.gameObject.tag.Equals("Enemy"))
         {
             collider.gameObject.SendMessage("OnHit", bulletDamage);
             Destroy(this.gameObject);
