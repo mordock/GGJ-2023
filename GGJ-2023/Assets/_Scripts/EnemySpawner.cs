@@ -10,12 +10,12 @@ public class EnemySpawner : MonoBehaviour
     public float difficultyTimer = 30f;
     public float baseDifficultyTimer = 30f;
 
-    private GameObject Enemy;
+    public GameObject Enemy;
 
 
     void Start()
     {
-        Enemy = GameObject.FindGameObjectWithTag("Enemy");
+        //Enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     void FixedUpdate()
