@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 244597641}
   - component: {fileID: 244597640}
   m_Layer: 5
-  m_Name: BEET
+  m_Name: Beet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,6 +472,30 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 1.21
       objectReference: {fileID: 0}
+    - target: {fileID: 9177365856014317177, guid: 8d0c3ac18676def42a3c1b412fc246d9, type: 3}
+      propertyPath: beetSeed
+      value: 
+      objectReference: {fileID: 3733989294806920187, guid: ac4f1f87fb0464c4da51c7aa4bf151e2, type: 3}
+    - target: {fileID: 9177365856014317177, guid: 8d0c3ac18676def42a3c1b412fc246d9, type: 3}
+      propertyPath: grapeSeed
+      value: 
+      objectReference: {fileID: 608599016575757540, guid: 7dde1395308d41c4c85121cf799e9a79, type: 3}
+    - target: {fileID: 9177365856014317177, guid: 8d0c3ac18676def42a3c1b412fc246d9, type: 3}
+      propertyPath: onionSeed
+      value: 
+      objectReference: {fileID: 2947963925298518535, guid: 07945bf0789a7d146bb76dc4ba937bbc, type: 3}
+    - target: {fileID: 9177365856014317177, guid: 8d0c3ac18676def42a3c1b412fc246d9, type: 3}
+      propertyPath: carrotSeed
+      value: 
+      objectReference: {fileID: 2855701643219818567, guid: fa20b7438551d63408f797507088ef3c, type: 3}
+    - target: {fileID: 9177365856014317177, guid: 8d0c3ac18676def42a3c1b412fc246d9, type: 3}
+      propertyPath: potatoSeed
+      value: 
+      objectReference: {fileID: 4337989791462097879, guid: e21fe21dc01c3454e96c065ec6669eda, type: 3}
+    - target: {fileID: 9177365856014317177, guid: 8d0c3ac18676def42a3c1b412fc246d9, type: 3}
+      propertyPath: blueberrySeed
+      value: 
+      objectReference: {fileID: 4493088098939522198, guid: ead77d0e76c8eca418c2ff5c0cd10312, type: 3}
     - target: {fileID: 9177365856014317178, guid: 8d0c3ac18676def42a3c1b412fc246d9, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -930,7 +954,7 @@ GameObject:
   - component: {fileID: 605064241}
   - component: {fileID: 605064240}
   m_Layer: 5
-  m_Name: GRAPE
+  m_Name: Grape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1234,7 +1258,7 @@ GameObject:
   - component: {fileID: 707300529}
   - component: {fileID: 707300528}
   m_Layer: 5
-  m_Name: BLUEBERRY
+  m_Name: Blueberry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1845,11 +1869,11 @@ MonoBehaviour:
   beetCooldown: 5
   blueberryCooldown: 5
   grapeCooldown: 5
-  carrotSelected: {fileID: 1374749934}
+  carrotSelected: {fileID: 0}
   potatoSelected: {fileID: 571165445}
   onionSelected: {fileID: 1814523635}
-  beetSelected: {fileID: 244597639}
-  blueberrySelected: {fileID: 707300527}
+  beetSelected: {fileID: 0}
+  blueberrySelected: {fileID: 0}
   grapeSelected: {fileID: 605064239}
   currentAmmo: {fileID: 0}
 --- !u!114 &1057821507
@@ -1996,9 +2020,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057821505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: 0.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -7, y: 0.67, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1241453584}
   - {fileID: 405730209}
@@ -2791,8 +2815,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -3.0019836, y: -2.9972}
-  m_SizeDelta: {x: 0, y: -5.9955}
+  m_AnchoredPosition: {x: 1.9342041, y: -0.50979996}
+  m_SizeDelta: {x: 9.8724, y: -1.0208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1422800206
 MonoBehaviour:
@@ -3480,7 +3504,7 @@ GameObject:
   - component: {fileID: 1814523637}
   - component: {fileID: 1814523636}
   m_Layer: 5
-  m_Name: UNION
+  m_Name: Onion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4107,7 +4131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2126122266
 Transform:
   m_ObjectHideFlags: 0

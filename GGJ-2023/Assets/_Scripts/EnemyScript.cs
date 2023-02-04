@@ -39,9 +39,6 @@ public class EnemyScript : MonoBehaviour
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
-        FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
-
         seedList.Add(carrotSeed);
         seedList.Add(potatoSeed);
         seedList.Add(beetSeed);
@@ -52,6 +49,9 @@ public class EnemyScript : MonoBehaviour
 
     private void Update()
     {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
+
         //Calculate distance from targets to enemy
         float farmDist = Vector3.Distance(transform.position, FarmTile.position);
         float playerDist = Vector3.Distance(transform.position, Player.position);
@@ -96,8 +96,6 @@ public class EnemyScript : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        Debug.Log(collision.gameObject.name);
-
         if (!noHit) {
             if (collision.gameObject.tag.Equals("Player")) {
                 collision.gameObject.GetComponent<playerHealth>().Hit(.21f);
@@ -132,7 +130,8 @@ public class EnemyScript : MonoBehaviour
         }
         if (health <= 0)
         {
-            int randomSeed = UnityEngine.Random.Range(0, seedList.Count - 1);
+            Debug.Log("YEP");
+            int randomSeed = Random.Range(0, seedList.Count - 1);
             Instantiate(seedList[randomSeed], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

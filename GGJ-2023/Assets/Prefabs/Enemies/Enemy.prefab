@@ -112,12 +112,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTimer: 0
-  KnockbackBegin:
-    m_PersistentCalls:
-      m_Calls: []
-  KnockbackDone:
-    m_PersistentCalls:
-      m_Calls: []
+  carrotSeed: {fileID: 0}
+  potatoSeed: {fileID: 0}
+  beetSeed: {fileID: 0}
+  onionSeed: {fileID: 0}
+  blueberrySeed: {fileID: 0}
+  grapeSeed: {fileID: 0}
 --- !u!54 &9177365856014317155
 Rigidbody:
   m_ObjectHideFlags: 0
