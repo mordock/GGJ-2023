@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FarmTile : MonoBehaviour
 {
-    public float Health = 20;
+    public float Health = 40;
 
     public Vegetable currentVegetable;
     // Start is called before the first frame update
