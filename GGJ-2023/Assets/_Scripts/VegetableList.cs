@@ -5,12 +5,12 @@ using UnityEngine;
 public class VegetableList : MonoBehaviour
 {
     public List<Vegetable> vegetables;
-    // Start is called before the first frame update
+
     void Start() {
 
     }
 
-    // Update is called once per frame
+
     void Update() {
 
     }
@@ -28,6 +28,7 @@ public class VegetableList : MonoBehaviour
         foreach (Vegetable vegetable in vegetables) {
             if (vegetable.vegetableName.Equals(name)) {
                 vegetable.currentSeedNumber += amount;
+                Debug.Log("fsifnsndfa");
                 break;
             }
         }
