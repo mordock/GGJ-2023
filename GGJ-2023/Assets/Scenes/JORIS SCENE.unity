@@ -2573,6 +2573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileSpawn: {fileID: 405730209}
+  slider: {fileID: 0}
   Carrot: {fileID: 5942767767431770276, guid: 39f50487557f52f43a647c2f8a9d4364, type: 3}
   Potato: {fileID: 6730846482597628247, guid: a0f5b1d228a593945a171996b41f58d8, type: 3}
   Union: {fileID: 5438795797274079363, guid: 5fca98047fcecdf4386c0553fa6851c0, type: 3}
@@ -4919,6 +4920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1809161297}
   - component: {fileID: 1809161298}
+  - component: {fileID: 1809161299}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -4960,7 +4962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4992,12 +4994,59 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1809161299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809161296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9a9eab5b9c1f04682e02e8f72f403b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProjectileSpawn: {fileID: 405730209}
+  slider: {fileID: 1809161298}
+  Carrot: {fileID: 5942767767431770276, guid: 39f50487557f52f43a647c2f8a9d4364, type: 3}
+  Potato: {fileID: 6730846482597628247, guid: a0f5b1d228a593945a171996b41f58d8, type: 3}
+  Union: {fileID: 5438795797274079363, guid: 5fca98047fcecdf4386c0553fa6851c0, type: 3}
+  Beet: {fileID: 147216103921104886, guid: a0703bd7cb827de4086a8ba8c5668e90, type: 3}
+  Blueberry: {fileID: 9212685075761361347, guid: 2f6364aead8e91a47a8b81e4e1b7a3e5, type: 3}
+  Grape: {fileID: 1543885629634336927, guid: 2ebaab3a2b1e6d04ea5f2ddfa889ca96, type: 3}
+  carrotSpeed: 80
+  potatoSpeed: 12
+  onionSpeed: 20
+  beetSpeed: 20
+  blueberrySpeed: 30
+  grapeSpeed: 30
+  carrotDamage: 20
+  potatoDamage: 15
+  onionDamage: 10
+  beetDamage: 10
+  blueberryDamage: 3
+  grapeDamage: 5
+  bulletCooldown: 1
+  bulletreleaselimit: 1
+  carrotCooldown: 5
+  potatoCooldown: 5
+  onionCooldown: 5
+  beetCooldown: 5
+  blueberryCooldown: 5
+  grapeCooldown: 5
+  carrotSelected: {fileID: 0}
+  potatoSelected: {fileID: 0}
+  onionSelected: {fileID: 0}
+  beetSelected: {fileID: 0}
+  blueberrySelected: {fileID: 0}
+  grapeSelected: {fileID: 0}
+  currentAmmo: {fileID: 0}
 --- !u!1 &1814523635
 GameObject:
   m_ObjectHideFlags: 0

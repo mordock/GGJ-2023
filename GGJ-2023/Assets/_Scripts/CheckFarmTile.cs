@@ -10,6 +10,8 @@ public class CheckFarmTile : MonoBehaviour
     public GameObject farmPanel;
     public GameObject vegetableOption;
 
+    public GameObject carrotOne, potatoOne, onionOne, beetOne, grapeOne, blueOne;
+
     private bool panelIsOpen = false;
     // Start is called before the first frame update
     void Start() {
@@ -62,6 +64,7 @@ public class CheckFarmTile : MonoBehaviour
                         hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[0]);
                         farmPanel.SetActive(false);
                         panelIsOpen = false;
+                        ReplaceTile(vegetables[0], hit);
                     }
                 }
 
@@ -72,6 +75,7 @@ public class CheckFarmTile : MonoBehaviour
                         hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[1]);
                         farmPanel.SetActive(false);
                         panelIsOpen = false;
+                        ReplaceTile(vegetables[1], hit);
                     }
                 }
 
@@ -82,6 +86,7 @@ public class CheckFarmTile : MonoBehaviour
                         hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[2]);
                         farmPanel.SetActive(false);
                         panelIsOpen = false;
+                        ReplaceTile(vegetables[2], hit);
                     }
                 }
 
@@ -92,6 +97,7 @@ public class CheckFarmTile : MonoBehaviour
                         hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[3]);
                         farmPanel.SetActive(false);
                         panelIsOpen = false;
+                        ReplaceTile(vegetables[3], hit);
                     }
                 }
 
@@ -102,6 +108,7 @@ public class CheckFarmTile : MonoBehaviour
                         hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[4]);
                         farmPanel.SetActive(false);
                         panelIsOpen = false;
+                        ReplaceTile(vegetables[4], hit);
                     }
                 }
 
@@ -112,11 +119,45 @@ public class CheckFarmTile : MonoBehaviour
                         hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[5]);
                         farmPanel.SetActive(false);
                         panelIsOpen = false;
+                        ReplaceTile(vegetables[6], hit);
                     }
                 }
             }
         } else {
             Debug.Log("nothing");
+        }
+    }
+
+    public void ReplaceTile(Vegetable vegetableToChangeTo, RaycastHit hit) {
+        if (vegetableToChangeTo.vegetableName.Equals("Carrot")) {
+            Vector3 pos = hit.transform.position;
+            Instantiate(carrotOne, pos, Quaternion.identity);
+            Destroy(hit.transform.gameObject);
+        }
+        if (vegetableToChangeTo.vegetableName.Equals("Onion")) {
+            Vector3 pos = hit.transform.position;
+            Instantiate(onionOne, pos, Quaternion.identity);
+            Destroy(hit.transform.gameObject);
+        }
+        if (vegetableToChangeTo.vegetableName.Equals("Beet")) {
+            Vector3 pos = hit.transform.position;
+            Instantiate(beetOne, pos, Quaternion.identity);
+            Destroy(hit.transform.gameObject);
+        }
+        if (vegetableToChangeTo.vegetableName.Equals("Potato")) {
+            Vector3 pos = hit.transform.position;
+            Instantiate(potatoOne, pos, Quaternion.identity);
+            Destroy(hit.transform.gameObject);
+        }
+        if (vegetableToChangeTo.vegetableName.Equals("Grape")) {
+            Vector3 pos = hit.transform.position;
+            Instantiate(grapeOne, pos, Quaternion.identity);
+            Destroy(hit.transform.gameObject);
+        }
+        if (vegetableToChangeTo.vegetableName.Equals("Blue Berry")) {
+            Vector3 pos = hit.transform.position;
+            Instantiate(blueOne, pos, Quaternion.identity);
+            Destroy(hit.transform.gameObject);
         }
     }
 }

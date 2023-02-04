@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1744079803548977408}
-  - component: {fileID: 7459781549017028452}
+  - component: {fileID: 1050433094447982122}
   m_Layer: 0
   m_Name: fence
   m_TagString: Untagged
@@ -121,7 +121,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7459781549017028452
+--- !u!65 &1050433094447982122
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,8 +132,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4518102, y: 0.7005923, z: 0.13886094}
-  m_Center: {x: -0.22590518, y: 0.3520438, z: 0.20305169}
+  m_Size: {x: 2.11, y: 0.61, z: 0.17}
+  m_Center: {x: 0, y: 0, z: 0.21}
 --- !u!1 &1864828644407430857
 GameObject:
   m_ObjectHideFlags: 0

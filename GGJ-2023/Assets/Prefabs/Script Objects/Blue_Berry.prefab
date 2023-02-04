@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vegetableName: Blue Berry
   multipleVegetableName: Blue Berries
-  currentSeedNumber: 0
-  currentAmmoNumber: 0
+  currentSeedNumber: 3
+  currentAmmoNumber: 50
   unlocked: 0

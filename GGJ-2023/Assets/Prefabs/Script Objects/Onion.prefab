@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vegetableName: Onion
   multipleVegetableName: Onions
-  currentNumber: 0
+  currentSeedNumber: 3
+  currentAmmoNumber: 50
   unlocked: 1
