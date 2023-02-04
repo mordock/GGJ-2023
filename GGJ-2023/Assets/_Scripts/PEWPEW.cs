@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PEWPEW : MonoBehaviour
 {
     public Transform ProjectileSpawn;
+    public Slider slider;
 
     [Header("bullet objects")]
     public GameObject Carrot;
@@ -65,6 +67,8 @@ public class PEWPEW : MonoBehaviour
         }
     }
     public void Update() {
+        //lol
+        slider.value = bulletCooldown;
         //fix with extra rule so it doesn't mess with farm tiles
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             currentAmmo = vegetables[1];
@@ -102,6 +106,7 @@ public class PEWPEW : MonoBehaviour
                     bulletCooldown = 0;
                     canShoot = false;
                     currentCooldown = carrotCooldown;
+                    slider.maxValue = currentCooldown;
                 }
 
                 if (currentAmmo.vegetableName.Equals("Potato")) {
@@ -112,6 +117,7 @@ public class PEWPEW : MonoBehaviour
                     bulletCooldown = 0;
                     canShoot = false;
                     currentCooldown = potatoCooldown;
+                    slider.maxValue = currentCooldown;
                 }
 
                 if (currentAmmo.vegetableName.Equals("Onion")) {
@@ -122,6 +128,7 @@ public class PEWPEW : MonoBehaviour
                     bulletCooldown = 0;
                     canShoot = false;
                     currentCooldown = onionCooldown;
+                    slider.maxValue = currentCooldown;
                 }
 
                 if (currentAmmo.vegetableName.Equals("Beet")) {
@@ -132,6 +139,7 @@ public class PEWPEW : MonoBehaviour
                     bulletCooldown = 0;
                     canShoot = false;
                     currentCooldown = beetCooldown;
+                    slider.maxValue = currentCooldown;
                 }
 
                 if (currentAmmo.vegetableName.Equals("Grape")) {
@@ -142,6 +150,7 @@ public class PEWPEW : MonoBehaviour
                     bulletCooldown = 0;
                     canShoot = false;
                     currentCooldown = grapeCooldown;
+                    slider.maxValue = currentCooldown;
                 }
 
                 if (canShoot && currentAmmo.vegetableName.Equals("Blue Berry")) {
@@ -152,9 +161,12 @@ public class PEWPEW : MonoBehaviour
                     bulletCooldown = 0;
                     canShoot = false;
                     currentCooldown = blueberryCooldown;
+                    slider.maxValue = currentCooldown;
                 }
             }
         }
+
+
         //if (Input.GetMouseButton(0)) {
         //    if (canShoot && currentAmmo.vegetableName.Equals("Blue Berry")) {
         //        var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
