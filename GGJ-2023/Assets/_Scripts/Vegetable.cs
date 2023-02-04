@@ -11,15 +11,22 @@ public class Vegetable : MonoBehaviour
     public int currentAmmoNumber;
 
     public bool unlocked;
-    // Start is called before the first frame update
+
+    public float vegetableLife = 60;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        vegetableLife -= Time.fixedDeltaTime;
+
+        if (vegetableLife <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

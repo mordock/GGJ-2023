@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8237834877052769195}
   - component: {fileID: 6176225529308194657}
   - component: {fileID: 6958203723135857348}
+  - component: {fileID: 1432419393721739800}
   m_Layer: 0
   m_Name: Farm_Ground_Blue_2
-  m_TagString: Untagged
+  m_TagString: FarmTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +111,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 20
   currentVegetable: {fileID: 0}
+  currentLevel: 1
+  carrotTwo: {fileID: 737156677300802479, guid: c12a3b77f8a259c439606a6788e0f787, type: 3}
+  potatoTwo: {fileID: 5429299510592443660, guid: 9b75968e8be1a4c41a810993f7d0136f, type: 3}
+  onionTwo: {fileID: 7274201474114665631, guid: 11e6e8fc975a33440833fcd6328e4bb0, type: 3}
+  beetTwo: {fileID: 2162225123671486133, guid: 2c8092f25e6d346408541f930837ccd4, type: 3}
+  grapeTwo: {fileID: 1137650467848937870, guid: 06536671610e0ef4085a5ddd976f4a24, type: 3}
+  blueTwo: {fileID: 5671896794413565620}
+  carrotThree: {fileID: 8878837463371265116, guid: 54255155b198cdb4f8a6f3fc95aafa7f, type: 3}
+  potatoThree: {fileID: 8187416707278149810, guid: 2243da16984c6584699e09bf8a252b7c, type: 3}
+  onionThree: {fileID: 855364845675361559, guid: d602baa3616374641b853468ac94bead, type: 3}
+  beetThree: {fileID: 4517272833952817374, guid: ae78d4ef9cb1af748b942eb32a36de1b, type: 3}
+  grapeThree: {fileID: 1106611898123250398, guid: f571170ba188c844e937eea04024c073, type: 3}
+  blueThree: {fileID: 3152159672985729879, guid: 0ca395a8e22672c4cb5a8643278370bd, type: 3}
+--- !u!65 &1432419393721739800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671896794413565620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.5347385, z: 2}
+  m_Center: {x: 0, y: 0.026362509, z: 0}
 --- !u!1001 &7967895011139065123
 PrefabInstance:
   m_ObjectHideFlags: 0

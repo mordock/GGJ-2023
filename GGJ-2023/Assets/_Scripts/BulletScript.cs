@@ -18,7 +18,6 @@ public class BulletScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag.Equals("Enemy"))
         {
             Destroy(collision.gameObject);
