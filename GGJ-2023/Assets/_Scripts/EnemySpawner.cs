@@ -10,12 +10,15 @@ public class EnemySpawner : MonoBehaviour
     public float difficultyTimer = 30f;
     public float baseDifficultyTimer = 30f;
 
-    private GameObject Enemy;
+    public GameObject Enemy;
 
+    private GameObject player;
+    private GameObject pumpkin;
 
     void Start()
     {
-        Enemy = GameObject.FindGameObjectWithTag("Enemy");
+        player = GameObject.FindGameObjectWithTag("Player");
+        pumpkin = GameObject.FindGameObjectWithTag("Pumpkin");
     }
 
     void FixedUpdate()
@@ -45,6 +48,18 @@ public class EnemySpawner : MonoBehaviour
                 baseSpawnCounter -= 0.5f;
             }
             difficultyTimer = baseDifficultyTimer;
+        }
+
+        float dist = Vector3.Distance(player.transform.position, transform.position);
+
+        if (pumpkin.GetComponent<Pumpkin>().hasPumpkin) {
+            if (Input.GetKeyDown(KeyCode.F)) {
+                if (dist <= 5) {
+                    pumpkin.GetComponent<Pumpkin>().hasPumpkin = false;
+                    Destroy(gameObject);
+                    pumpkin.GetComponent<Pumpkin>().pumpkinUI.text = "We DON'T have a Pumpkin!";
+                }
+            }
         }
     }
 }

@@ -15,11 +15,12 @@ public class Mound : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (!isCopy) {
-            transform.Translate(new Vector3(0, 2 * Time.deltaTime, 0));
+            //transform.Translate(new Vector3(0, 2 * Time.deltaTime, 0));
             timePassed += Time.deltaTime;
             if (timePassed > 0.25f) {
                 //do something
-                GameObject newMound = Instantiate(mound);
+                GameObject newMound = Instantiate(mound, transform.position, Quaternion.identity);
+                newMound.transform.Rotate(new Vector3(-90, 0, 0));
                 newMound.GetComponent<Mound>().isCopy = true;
                 timePassed = 0;
             }
@@ -37,9 +38,9 @@ public class Mound : MonoBehaviour
         }
     }
 
-    IEnumerator Spawn(float secs) {
-        GameObject newMound = Instantiate(mound);
-        newMound.GetComponent<Mound>().isCopy = true;
-        yield return new WaitForSeconds(secs);
-    }
+    //IEnumerator Spawn(float secs) {
+    //    GameObject newMound = Instantiate(mound);
+    //    newMound.GetComponent<Mound>().isCopy = true;
+    //    yield return new WaitForSeconds(secs);
+    //}
 }
