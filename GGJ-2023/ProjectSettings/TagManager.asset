@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - FarmTile
   - Hitbox
+  - Pumpkin
   layers:
   - Default
   - TransparentFX

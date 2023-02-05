@@ -85,11 +85,11 @@ public class PEWPEW : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.Alpha5)) {
             currentAmmo = vegetables[4];
             TurnOffAllSelectedUI();
-            grapeSelected.SetActive(true);
+            blueberrySelected.SetActive(true);
         } else if (Input.GetKeyDown(KeyCode.Alpha6)) {
             currentAmmo = vegetables[5];
             TurnOffAllSelectedUI();
-            blueberrySelected.SetActive(true);
+            grapeSelected.SetActive(true);
         }
 
         if (Input.GetMouseButtonDown(0)) {
