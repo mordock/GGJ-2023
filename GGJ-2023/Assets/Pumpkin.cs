@@ -21,7 +21,7 @@ public class Pumpkin : MonoBehaviour
 
         InvokeRepeating("Grow", 0, pumpkinGrowthTime);
 
-        pumpkinUI.text = "We DON'T have a Pumpkin!";
+        pumpkinUI.text = "Your pumpkin is still growing...";
 
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -50,7 +50,7 @@ public class Pumpkin : MonoBehaviour
                 if (dist <= 5) {
                     level = 1;
                     hasPumpkin = true;
-                    pumpkinUI.text = "We DO have a Pumpkin!";
+                    pumpkinUI.text = "Your pumpkin is fully grown! Use it to destroy gopher nests! (F to interact)";
                 }
             }
         }

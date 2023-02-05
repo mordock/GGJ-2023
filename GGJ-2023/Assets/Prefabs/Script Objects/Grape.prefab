@@ -47,6 +47,6 @@ MonoBehaviour:
   vegetableName: Grape
   multipleVegetableName: Grapes
   currentSeedNumber: 5
-  currentAmmoNumber: 10
+  currentAmmoNumber: 50
   unlocked: 1
   vegetableLife: 60
