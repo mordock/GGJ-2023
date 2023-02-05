@@ -50,7 +50,7 @@ public class Pumpkin : MonoBehaviour
                 if (dist <= 5) {
                     level = 1;
                     hasPumpkin = true;
-                    pumpkinUI.text = "We DO have a Pumpkin!";
+                    pumpkinUI.text = "You have a pumpkin! You can destroy gopher nests with this (press F)";
                 }
             }
         }

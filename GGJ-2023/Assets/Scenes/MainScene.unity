@@ -18378,6 +18378,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 931034012}
     m_Modifications:
+    - target: {fileID: 6023810019786334073, guid: f960105465dc003488666408362d8f2b, type: 3}
+      propertyPath: SummonTime
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 8483180535973914901, guid: f960105465dc003488666408362d8f2b, type: 3}
       propertyPath: m_Name
       value: EnemySpawner (1)
@@ -23471,6 +23475,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 931034012}
     m_Modifications:
+    - target: {fileID: 6023810019786334073, guid: f960105465dc003488666408362d8f2b, type: 3}
+      propertyPath: SummonTime
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 8483180535973914901, guid: f960105465dc003488666408362d8f2b, type: 3}
       propertyPath: m_Name
       value: EnemySpawner (2)
@@ -49386,6 +49394,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 931034012}
     m_Modifications:
+    - target: {fileID: 6023810019786334073, guid: f960105465dc003488666408362d8f2b, type: 3}
+      propertyPath: SummonTime
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 8483180535973914901, guid: f960105465dc003488666408362d8f2b, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
