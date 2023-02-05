@@ -35,7 +35,7 @@ public class CheckFarmTile : MonoBehaviour
 
                             //empty old tiles
                             foreach (Transform child in farmPanel.transform.GetChild(0)) {
-                                //Destroy the child
+                                //Destroy the children
                                 Destroy(child.gameObject);
                             }
 
@@ -46,7 +46,7 @@ public class CheckFarmTile : MonoBehaviour
                                 if (vegetable.unlocked) {
                                     GameObject tile = Instantiate(vegetableOption, farmPanel.transform.GetChild(0));
                                     //fill in values of tile
-                                    tile.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = vegetable.multipleVegetableName;
+                                    tile.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = vegetable.vegetableName;
                                     tile.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "Amount: " + vegetable.currentSeedNumber;
                                     tile.transform.GetChild(0).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = "Press: " + pressValue;
                                     pressValue++;
@@ -69,66 +69,91 @@ public class CheckFarmTile : MonoBehaviour
             if (panelIsOpen) {
                 if (Input.GetKeyDown(KeyCode.Alpha1)) {
                     List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
-                    if (vegetables[0] != null) {
-                        hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[0]);
-                        farmPanel.SetActive(false);
-                        panelIsOpen = false;
-                        ReplaceTile(vegetables[0], hit);
+                    string chosenName = farmPanel.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
+
+                    foreach(Vegetable vegetable in vegetables) {
+                        if (vegetable.name.Equals(chosenName)) {
+                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
+                            farmPanel.SetActive(false);
+                            panelIsOpen = false;
+                            ReplaceTile(vegetable, hit);
+                            break;
+                        }
                     }
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2)) {
                     List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
+                    string chosenName = farmPanel.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
 
-                    if (vegetables[1] != null) {
-                        hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[1]);
-                        farmPanel.SetActive(false);
-                        panelIsOpen = false;
-                        ReplaceTile(vegetables[1], hit);
+                    foreach (Vegetable vegetable in vegetables) {
+                        if (vegetable.name.Equals(chosenName)) {
+                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
+                            farmPanel.SetActive(false);
+                            panelIsOpen = false;
+                            ReplaceTile(vegetable, hit);
+                            break;
+                        }
                     }
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha3)) {
                     List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
+                    string chosenName = farmPanel.transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
 
-                    if (vegetables[2] != null) {
-                        hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[2]);
-                        farmPanel.SetActive(false);
-                        panelIsOpen = false;
-                        ReplaceTile(vegetables[2], hit);
+                    foreach (Vegetable vegetable in vegetables) {
+                        if (vegetable.name.Equals(chosenName)) {
+                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
+                            farmPanel.SetActive(false);
+                            panelIsOpen = false;
+                            ReplaceTile(vegetable, hit);
+                            break;
+                        }
                     }
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha4)) {
                     List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
+                    string chosenName = farmPanel.transform.GetChild(0).GetChild(3).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
 
-                    if (vegetables[3] != null) {
-                        hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[3]);
-                        farmPanel.SetActive(false);
-                        panelIsOpen = false;
-                        ReplaceTile(vegetables[3], hit);
+                    foreach (Vegetable vegetable in vegetables) {
+                        if (vegetable.name.Equals(chosenName)) {
+                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
+                            farmPanel.SetActive(false);
+                            panelIsOpen = false;
+                            ReplaceTile(vegetable, hit);
+                            break;
+                        }
                     }
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha5)) {
                     List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
+                    string chosenName = farmPanel.transform.GetChild(0).GetChild(4).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
 
-                    if (vegetables[4] != null) {
-                        hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[4]);
-                        farmPanel.SetActive(false);
-                        panelIsOpen = false;
-                        ReplaceTile(vegetables[4], hit);
+                    foreach (Vegetable vegetable in vegetables) {
+                        if (vegetable.name.Equals(chosenName)) {
+                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
+                            farmPanel.SetActive(false);
+                            panelIsOpen = false;
+                            ReplaceTile(vegetable, hit);
+                            break;
+                        }
                     }
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha6)) {
                     List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
+                    string chosenName = farmPanel.transform.GetChild(0).GetChild(6).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
 
-                    if (vegetables[5] != null) {
-                        hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetables[5]);
-                        farmPanel.SetActive(false);
-                        panelIsOpen = false;
-                        ReplaceTile(vegetables[6], hit);
+                    foreach (Vegetable vegetable in vegetables) {
+                        if (vegetable.name.Equals(chosenName)) {
+                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
+                            farmPanel.SetActive(false);
+                            panelIsOpen = false;
+                            ReplaceTile(vegetable, hit);
+                            break;
+                        }
                     }
                 }
             }

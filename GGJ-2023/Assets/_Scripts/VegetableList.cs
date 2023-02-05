@@ -28,7 +28,6 @@ public class VegetableList : MonoBehaviour
         foreach (Vegetable vegetable in vegetables) {
             if (vegetable.vegetableName.Equals(name)) {
                 vegetable.currentSeedNumber += amount;
-                Debug.Log("fsifnsndfa");
                 break;
             }
         }
