@@ -1169,6 +1169,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level
       objectReference: {fileID: 0}
+    - target: {fileID: 8039755688935593129, guid: 51b8eda28422bf147af78eb656c29e2c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039755688935593129, guid: 51b8eda28422bf147af78eb656c29e2c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c30fcbc6019f174c8500a198c9f982c, type: 2}
+    - target: {fileID: 8039755688935593130, guid: 51b8eda28422bf147af78eb656c29e2c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7030633676880073701, guid: 51b8eda28422bf147af78eb656c29e2c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 51b8eda28422bf147af78eb656c29e2c, type: 3}
@@ -6983,21 +6995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c631389cd64849d47b02d4338007c5ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PostExposure: 1.48
-  Contrast: 1.02
-  Disaturate: 0.496
-  Min: -0.117
-  Max: 0.744
-  Saturation: 0.83
-  DepthOfField: 0
-  BlurAmount: 1
-  BlurDistance: 200
-  BlurRange: 5
-  VignetteIntensity: 0.5
-  material: {fileID: 0}
-  Cam: {fileID: 0}
-  SceneView: {fileID: 0}
-  SceneCamera: {fileID: 0}
 --- !u!114 &2137522564
 MonoBehaviour:
   m_ObjectHideFlags: 0
