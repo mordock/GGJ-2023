@@ -23060,7 +23060,7 @@ RectTransform:
   - {fileID: 1632628903}
   - {fileID: 1441412319}
   m_Father: {fileID: 1107822874}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -23336,7 +23336,7 @@ RectTransform:
   - {fileID: 1552149470}
   - {fileID: 764033072}
   m_Father: {fileID: 1107822874}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -30192,7 +30192,7 @@ RectTransform:
   - {fileID: 1832550430}
   - {fileID: 2127187352}
   m_Father: {fileID: 1107822874}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -33072,12 +33072,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 735927190}
+  - {fileID: 742616942}
   - {fileID: 1298438925}
+  - {fileID: 2101671482}
   - {fileID: 982794319}
   - {fileID: 1237674950}
-  - {fileID: 742616942}
-  - {fileID: 2101671482}
+  - {fileID: 735927190}
   m_Father: {fileID: 1178638659}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36946,7 +36946,7 @@ RectTransform:
   - {fileID: 182170689}
   - {fileID: 1986830819}
   m_Father: {fileID: 1107822874}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -37737,8 +37737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -343, y: 166}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -366.7, y: 195.7}
+  m_SizeDelta: {x: 48.6964, y: 48.6964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256466681
 MonoBehaviour:
@@ -58257,12 +58257,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b942a9ac7b93f44bf0b48db5f31800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carrotAmmo: {fileID: 2147255132}
-  onionAmmo: {fileID: 1873301872}
-  beetAmmo: {fileID: 1172265238}
-  potatoAmmo: {fileID: 828512126}
-  grapeAmmo: {fileID: 2131160011}
-  BlueAmmo: {fileID: 376394380}
+  carrotAmmo: {fileID: 735927189}
+  onionAmmo: {fileID: 1298438924}
+  beetAmmo: {fileID: 1237674949}
+  potatoAmmo: {fileID: 982794318}
+  grapeAmmo: {fileID: 742616941}
+  BlueAmmo: {fileID: 2101671481}
 --- !u!1001 &1998601690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59988,7 +59988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 152.2, y: 28.5}
+  m_AnchoredPosition: {x: 131.1, y: 25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2053961303
@@ -60011,7 +60011,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You have a pumpkin! You can destroy gopher nests with this (press F)
+  m_text: Your pumpkin is fully grown! Use it to destroy gopher nests! (F to interact)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -60038,8 +60038,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -61894,7 +61894,7 @@ RectTransform:
   - {fileID: 378328976}
   - {fileID: 198137598}
   m_Father: {fileID: 1107822874}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

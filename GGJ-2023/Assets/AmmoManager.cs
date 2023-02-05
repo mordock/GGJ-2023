@@ -12,7 +12,7 @@ public class AmmoManager : MonoBehaviour
     void Start()
     {
         vegetables = GetComponent<VegetableList>().vegetables;
-
+  
         FillAmmoUI();
     }
 

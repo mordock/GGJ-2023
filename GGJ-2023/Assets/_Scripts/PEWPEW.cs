@@ -66,37 +66,37 @@ public class PEWPEW : MonoBehaviour
     public void Update() {
         slider.value = bulletCooldown;
         //fix with extra rule so it doesn't mess with farm tiles
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+        if (Input.GetKeyDown(KeyCode.Alpha6)) {
             if (vegetables[1].unlocked) {
                 currentAmmo = vegetables[1];
                 TurnOffAllSelectedUI();
                 carrotSelected.SetActive(true);
             }
-        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+        } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
             if (vegetables[3].unlocked) {
                 currentAmmo = vegetables[3];
                 TurnOffAllSelectedUI();
                 potatoSelected.SetActive(true);
             }
-        } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
+        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
             if (vegetables[2].unlocked) {
                 currentAmmo = vegetables[2];
                 TurnOffAllSelectedUI();
                 onionSelected.SetActive(true);
             }
-        } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+        } else if (Input.GetKeyDown(KeyCode.Alpha5)) {
             if (vegetables[0].unlocked) {
                 currentAmmo = vegetables[0];
                 TurnOffAllSelectedUI();
                 beetSelected.SetActive(true);
             }
-        } else if (Input.GetKeyDown(KeyCode.Alpha5)) {
+        } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
             if (vegetables[4].unlocked) {
                 currentAmmo = vegetables[4];
                 TurnOffAllSelectedUI();
                 blueberrySelected.SetActive(true);
             }
-        } else if (Input.GetKeyDown(KeyCode.Alpha6)) {
+        } else if (Input.GetKeyDown(KeyCode.Alpha1)) {
             Debug.Log("MIEP");
             if (vegetables[5].unlocked) {
                 currentAmmo = vegetables[5];
@@ -180,6 +180,21 @@ public class PEWPEW : MonoBehaviour
 
                     vegetableList.DecreaseVegetableAmmoNumber("Blue Berry", 1);
                 }
+            }
+        }
+        if (Input.GetMouseButton(0))
+        {
+            if (canShoot && currentAmmo.vegetableName.Equals("Blue Berry") && currentAmmo.currentAmmoNumber > 0)
+            {
+                var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
+                bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * blueberrySpeed;
+
+                bulletCooldown = 0;
+                canShoot = false;
+                currentCooldown = blueberryCooldown;
+                slider.maxValue = currentCooldown;
+
+                vegetableList.DecreaseVegetableAmmoNumber("Blue Berry", 1);
             }
         }
     }
