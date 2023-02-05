@@ -11,7 +11,7 @@ public class EnemyScript : MonoBehaviour
     private Transform FarmTile;
     private Transform Player;
 
-    private float speed = 5;
+    private float speed = 3;
     private float stoppingDistance = 2.5f;
     private float aggroDistance = 6f;
     private float playerTargetLinger = 0;

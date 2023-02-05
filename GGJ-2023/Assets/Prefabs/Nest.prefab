@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9147267608507839407}
   - component: {fileID: 5286738851778591754}
   - component: {fileID: 7978887259855521984}
+  - component: {fileID: 6023810019786334073}
   m_Layer: 0
   m_Name: Nest
   m_TagString: Untagged
@@ -83,3 +84,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6023810019786334073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483180535973914901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d10c5089ada62489db431b98bebb28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 9177365856014317178, guid: 8d0c3ac18676def42a3c1b412fc246d9, type: 3}
+  SummonTimer: 0
+  SummonTime: 500
+  RandomTimeAdd: 0
+  Gracetime: 500
+  DifficultyTimer: 0
+  DifficultyScaler: 100

@@ -22,7 +22,7 @@ public class FarmTile : MonoBehaviour
     void Update() {
         if (currentVegetable != null) {
             if (currentLevel < 3) {
-                StartCoroutine(Grow(20));
+                StartCoroutine(Grow(3));
             }
         }
     }
