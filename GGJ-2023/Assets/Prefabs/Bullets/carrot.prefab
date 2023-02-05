@@ -484,7 +484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f751f52ff15aef41a9ea4e54868c015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 0
+  bulletDamage: 5
+  beetExplosionTimer: -10
 --- !u!65 &8672765691684847346
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ using UnityEngine.SocialPlatforms;
 public class BulletScript : MonoBehaviour
 {
     public float bulletDamage;
-    public float beetExplosionTimer = -10;
+    public float beetExplosionTimer = -1;
     private Vector3 scaleChange;
     private SphereCollider explosionCollider;
 
@@ -36,7 +36,7 @@ public class BulletScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("Enemy") && beetExplosionTimer == -1)
+        if (collision.gameObject.tag.Equals("Enemy"))
         {
             collision.gameObject.GetComponent<EnemyScript>().OnHit(bulletDamage);
             Destroy(gameObject);

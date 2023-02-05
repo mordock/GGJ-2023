@@ -308,13 +308,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c36250ec939a94bb21307e49c448d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 20
   attackTimer: 5
-  carrotSeed: {fileID: 0}
-  potatoSeed: {fileID: 0}
-  beetSeed: {fileID: 0}
-  onionSeed: {fileID: 0}
-  blueberrySeed: {fileID: 0}
-  grapeSeed: {fileID: 0}
+  seedList:
+  - {fileID: 3733989294806920187, guid: ac4f1f87fb0464c4da51c7aa4bf151e2, type: 3}
+  - {fileID: 4493088098939522198, guid: ead77d0e76c8eca418c2ff5c0cd10312, type: 3}
+  - {fileID: 2855701643219818567, guid: fa20b7438551d63408f797507088ef3c, type: 3}
+  - {fileID: 608599016575757540, guid: 7dde1395308d41c4c85121cf799e9a79, type: 3}
+  - {fileID: 2947963925298518535, guid: 07945bf0789a7d146bb76dc4ba937bbc, type: 3}
+  - {fileID: 4337989791462097879, guid: e21fe21dc01c3454e96c065ec6669eda, type: 3}
 --- !u!54 &9177365856014317155
 Rigidbody:
   m_ObjectHideFlags: 0
