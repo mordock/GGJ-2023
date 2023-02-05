@@ -25,16 +25,20 @@ public class CheckFarmTile : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit)) {
             if (hit.transform.gameObject.tag.Equals("FarmTile")) {
-                if (Input.GetKeyDown(KeyCode.E)) {
-                    if (hit.transform.gameObject.GetComponent<FarmTile>().currentLevel < 2) {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (hit.transform.gameObject.GetComponent<FarmTile>().currentLevel < 2)
+                    {
                         //this doens't check for distance, I know, shut up
                         //open ui
-                        if (!panelIsOpen) {
+                        if (!panelIsOpen)
+                        {
                             farmPanel.SetActive(true);
                             panelIsOpen = true;
 
                             //empty old tiles
-                            foreach (Transform child in farmPanel.transform.GetChild(0)) {
+                            foreach (Transform child in farmPanel.transform.GetChild(0))
+                            {
                                 //Destroy the child
                                 Destroy(child.gameObject);
                             }
@@ -42,8 +46,10 @@ public class CheckFarmTile : MonoBehaviour
                             //fill UI with correct amount of tiles
                             List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
                             int pressValue = 1;
-                            foreach (Vegetable vegetable in vegetables) {
-                                if (vegetable.unlocked) {
+                            foreach (Vegetable vegetable in vegetables)
+                            {
+                                if (vegetable.unlocked)
+                                {
                                     GameObject tile = Instantiate(vegetableOption, farmPanel.transform.GetChild(0));
                                     //fill in values of tile
                                     tile.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = vegetable.multipleVegetableName;
@@ -52,16 +58,64 @@ public class CheckFarmTile : MonoBehaviour
                                     pressValue++;
                                 }
                             }
-                        } else {
+                        }
+                        else
+                        {
                             farmPanel.SetActive(false);
                             panelIsOpen = false;
                         }
-                    } else {
-                        //farm vegetable and get ammo
-                        GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
-                        Vector3 pos = hit.transform.position;
-                        Destroy(hit.transform.gameObject);
-                        var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                    }
+                    else
+                    {
+                        string name = hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName;
+                        if (name.Equals("Carrot"))
+                        {
+                            //farm vegetable and get ammo
+                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
+                            Vector3 pos = hit.transform.position;
+                            Destroy(hit.transform.gameObject);
+                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                        }
+                        if (name.Equals("Beet"))
+                        {
+                            //farm vegetable and get ammo
+                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
+                            Vector3 pos = hit.transform.position;
+                            Destroy(hit.transform.gameObject);
+                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                        }
+                        if (name.Equals("Onion"))
+                        {
+                            //farm vegetable and get ammo
+                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 10);
+                            Vector3 pos = hit.transform.position;
+                            Destroy(hit.transform.gameObject);
+                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                        }
+                        if (name.Equals("Potato"))
+                        {
+                            //farm vegetable and get ammo
+                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
+                            Vector3 pos = hit.transform.position;
+                            Destroy(hit.transform.gameObject);
+                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                        }
+                        if (name.Equals("Blueberry"))
+                        {
+                            //farm vegetable and get ammo
+                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 40);
+                            Vector3 pos = hit.transform.position;
+                            Destroy(hit.transform.gameObject);
+                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                        }
+                        if (name.Equals("Grape"))
+                        {
+                            //farm vegetable and get ammo
+                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 10);
+                            Vector3 pos = hit.transform.position;
+                            Destroy(hit.transform.gameObject);
+                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                        }
                     }
                 }
             }
