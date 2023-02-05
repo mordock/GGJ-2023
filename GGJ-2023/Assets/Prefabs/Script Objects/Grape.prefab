@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vegetableName: Grape
   multipleVegetableName: Grapes
-  currentSeedNumber: 3
-  currentAmmoNumber: 50
-  unlocked: 0
+  currentSeedNumber: 5
+  currentAmmoNumber: 10
+  unlocked: 1
   vegetableLife: 60

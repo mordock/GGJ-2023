@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vegetableName: Carrot
   multipleVegetableName: Carrots
-  currentSeedNumber: 3
-  currentAmmoNumber: 50
+  currentSeedNumber: 0
+  currentAmmoNumber: 0
   unlocked: 0
   vegetableLife: 60
