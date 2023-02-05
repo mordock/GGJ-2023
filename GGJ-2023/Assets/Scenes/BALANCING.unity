@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23179446, g: 0.590992, b: 0.87021077, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2000,7 +2000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &394635746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4140,6 +4140,9 @@ MonoBehaviour:
   pumpkin1: {fileID: 447990376}
   pumpkin2: {fileID: 73533408}
   pumpkin3: {fileID: 600229935}
+  pumpkinUI: {fileID: 0}
+  pumpkinGrowthTime: 0
+  hasPumpkin: 0
 --- !u!4 &836803197
 Transform:
   m_ObjectHideFlags: 0
@@ -6992,6 +6995,9 @@ MonoBehaviour:
   BlurRange: 5
   VignetteIntensity: 0.5
   material: {fileID: 0}
+  Cam: {fileID: 0}
+  SceneView: {fileID: 0}
+  SceneCamera: {fileID: 0}
 --- !u!114 &2137522564
 MonoBehaviour:
   m_ObjectHideFlags: 0

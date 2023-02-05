@@ -99,7 +99,7 @@ public class CheckFarmTile : MonoBehaviour
                             Destroy(hit.transform.gameObject);
                             var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
                         }
-                        if (name.Equals("Blueberry"))
+                        if (name.Equals("Blue Berry"))
                         {
                             //farm vegetable and get ammo
                             GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 40);
