@@ -49,3 +49,4 @@ MonoBehaviour:
   currentSeedNumber: 3
   currentAmmoNumber: 50
   unlocked: 0
+  vegetableLife: 60

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vegetableName: Beet
   multipleVegetableName: Beets
-  currentSeedNumber: 3
-  currentAmmoNumber: 70
+  currentSeedNumber: 2
+  currentAmmoNumber: 50
   unlocked: 1
+  vegetableLife: 60

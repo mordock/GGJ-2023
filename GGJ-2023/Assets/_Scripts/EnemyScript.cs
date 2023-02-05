@@ -18,40 +18,26 @@ public class EnemyScript : MonoBehaviour
     private float basePlayerTargetLinger = 2;
 
     private float enemyDamage = 3;
-    private float health = 20;
+    public float health = 20;
     public float attackTimer;
     private float baseAttackTimer = 2;
-    private float baseInvincibilityTime = 1;
     private float invincibilityTimer;
 
     private bool noHit = false;
     private Vector3 previousPos;
 
-    List<GameObject> seedList = new List<GameObject>();
-    public GameObject carrotSeed;
-    public GameObject potatoSeed;
-    public GameObject beetSeed;
-    public GameObject onionSeed;
-    public GameObject blueberrySeed;
-    public GameObject grapeSeed;
-
-
+    public List<GameObject> seedList = new List<GameObject>();
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
-        FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
 
-        seedList.Add(carrotSeed);
-        seedList.Add(potatoSeed);
-        seedList.Add(beetSeed);
-        seedList.Add(onionSeed);
-        seedList.Add(blueberrySeed);
-        seedList.Add(grapeSeed);
     }
 
     private void Update()
     {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        FarmTile = GameObject.FindGameObjectWithTag("FarmTile").transform;
+
         //Calculate distance from targets to enemy
         float farmDist = Vector3.Distance(transform.position, FarmTile.position);
         float playerDist = Vector3.Distance(transform.position, Player.position);
@@ -96,8 +82,6 @@ public class EnemyScript : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        Debug.Log(collision.gameObject.name);
-
         if (!noHit) {
             if (collision.gameObject.tag.Equals("Player")) {
                 collision.gameObject.GetComponent<playerHealth>().Hit(.21f);
@@ -124,15 +108,11 @@ public class EnemyScript : MonoBehaviour
     }
 
     public void OnHit(float damage) {
-
-        if (invincibilityTimer <= 0) {
-            health -= damage;
-            playerTargetLinger = basePlayerTargetLinger * 2;
-            invincibilityTimer = baseInvincibilityTime;
-        }
+        health -= damage;
         if (health <= 0)
         {
-            int randomSeed = UnityEngine.Random.Range(0, seedList.Count - 1);
+            Debug.Log("YEP");
+            int randomSeed = Random.Range(0, seedList.Count - 1);
             Instantiate(seedList[randomSeed], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
