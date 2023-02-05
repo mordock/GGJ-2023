@@ -58257,12 +58257,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b942a9ac7b93f44bf0b48db5f31800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carrotAmmo: {fileID: 735927189}
-  onionAmmo: {fileID: 1298438924}
-  beetAmmo: {fileID: 1237674949}
-  potatoAmmo: {fileID: 982794318}
-  grapeAmmo: {fileID: 742616941}
-  BlueAmmo: {fileID: 2101671481}
+  carrotAmmo: {fileID: 2147255132}
+  onionAmmo: {fileID: 1873301872}
+  beetAmmo: {fileID: 1172265238}
+  potatoAmmo: {fileID: 828512126}
+  grapeAmmo: {fileID: 2131160011}
+  BlueAmmo: {fileID: 376394380}
 --- !u!1001 &1998601690
 PrefabInstance:
   m_ObjectHideFlags: 0

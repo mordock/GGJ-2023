@@ -67,40 +67,42 @@ public class PEWPEW : MonoBehaviour
         slider.value = bulletCooldown;
         //fix with extra rule so it doesn't mess with farm tiles
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            if (currentAmmo.unlocked) {
+            if (vegetables[1].unlocked) {
                 currentAmmo = vegetables[1];
                 TurnOffAllSelectedUI();
                 carrotSelected.SetActive(true);
             }
         } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            if (currentAmmo.unlocked) {
+            if (vegetables[3].unlocked) {
                 currentAmmo = vegetables[3];
                 TurnOffAllSelectedUI();
                 potatoSelected.SetActive(true);
             }
         } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            if (currentAmmo.unlocked) {
+            if (vegetables[2].unlocked) {
                 currentAmmo = vegetables[2];
                 TurnOffAllSelectedUI();
                 onionSelected.SetActive(true);
             }
         } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
-            if (currentAmmo.unlocked) {
+            if (vegetables[0].unlocked) {
                 currentAmmo = vegetables[0];
                 TurnOffAllSelectedUI();
                 beetSelected.SetActive(true);
             }
         } else if (Input.GetKeyDown(KeyCode.Alpha5)) {
-            if (currentAmmo.unlocked) {
+            if (vegetables[4].unlocked) {
                 currentAmmo = vegetables[4];
                 TurnOffAllSelectedUI();
                 blueberrySelected.SetActive(true);
             }
         } else if (Input.GetKeyDown(KeyCode.Alpha6)) {
-            if (currentAmmo.unlocked) {
+            Debug.Log("MIEP");
+            if (vegetables[5].unlocked) {
                 currentAmmo = vegetables[5];
                 TurnOffAllSelectedUI();
                 grapeSelected.SetActive(true);
+                Debug.Log("BIEP");
             }
         }
 
