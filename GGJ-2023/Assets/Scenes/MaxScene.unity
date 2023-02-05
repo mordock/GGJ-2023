@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23179446, g: 0.590992, b: 0.87021077, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -290,6 +290,9 @@ MonoBehaviour:
   pumpkin1: {fileID: 487960760}
   pumpkin2: {fileID: 332427272}
   pumpkin3: {fileID: 1539832910}
+  pumpkinUI: {fileID: 0}
+  pumpkinGrowthTime: 0
+  hasPumpkin: 0
 --- !u!4 &124747659
 Transform:
   m_ObjectHideFlags: 0
@@ -306,7 +309,7 @@ Transform:
   - {fileID: 332427271}
   - {fileID: 1539832909}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &244597639
 GameObject:
@@ -1283,7 +1286,7 @@ PrefabInstance:
       objectReference: {fileID: 5429299510592443660, guid: 9b75968e8be1a4c41a810993f7d0136f, type: 3}
     - target: {fileID: 3819192962557865335, guid: 51b8eda28422bf147af78eb656c29e2c, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3819192962557865335, guid: 51b8eda28422bf147af78eb656c29e2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1329,6 +1332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level
       objectReference: {fileID: 0}
+    - target: {fileID: 8039755688935593129, guid: 51b8eda28422bf147af78eb656c29e2c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c30fcbc6019f174c8500a198c9f982c, type: 2}
     m_RemovedComponents:
     - {fileID: 7030633676880073701, guid: 51b8eda28422bf147af78eb656c29e2c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 51b8eda28422bf147af78eb656c29e2c, type: 3}
@@ -1887,7 +1894,7 @@ RectTransform:
   - {fileID: 1231837143}
   - {fileID: 1809161297}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1945,12 +1952,6 @@ MonoBehaviour:
   beetSpeed: 20
   blueberrySpeed: 30
   grapeSpeed: 30
-  carrotDamage: 20
-  potatoDamage: 15
-  onionDamage: 10
-  beetDamage: 10
-  blueberryDamage: 3
-  grapeDamage: 5
   bulletCooldown: 1
   bulletreleaselimit: 1
   carrotCooldown: 5
@@ -2117,7 +2118,7 @@ Transform:
   - {fileID: 1241453584}
   - {fileID: 405730209}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1057821513
 MonoBehaviour:
@@ -2959,7 +2960,7 @@ RectTransform:
   m_Children:
   - {fileID: 739907792}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3539,7 +3540,7 @@ RectTransform:
   - {fileID: 707300532}
   - {fileID: 605064244}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3630,7 +3631,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1784805206
 MonoBehaviour:
@@ -4415,7 +4416,7 @@ Transform:
   - {fileID: 1473960800}
   - {fileID: 731513906}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2141397858
 GameObject:

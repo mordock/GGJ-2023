@@ -67,29 +67,41 @@ public class PEWPEW : MonoBehaviour
         slider.value = bulletCooldown;
         //fix with extra rule so it doesn't mess with farm tiles
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            currentAmmo = vegetables[1];
-            TurnOffAllSelectedUI();
-            carrotSelected.SetActive(true);
+            if (currentAmmo.unlocked) {
+                currentAmmo = vegetables[1];
+                TurnOffAllSelectedUI();
+                carrotSelected.SetActive(true);
+            }
         } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            currentAmmo = vegetables[3];
-            TurnOffAllSelectedUI();
-            potatoSelected.SetActive(true);
+            if (currentAmmo.unlocked) {
+                currentAmmo = vegetables[3];
+                TurnOffAllSelectedUI();
+                potatoSelected.SetActive(true);
+            }
         } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            currentAmmo = vegetables[2];
-            TurnOffAllSelectedUI();
-            onionSelected.SetActive(true);
+            if (currentAmmo.unlocked) {
+                currentAmmo = vegetables[2];
+                TurnOffAllSelectedUI();
+                onionSelected.SetActive(true);
+            }
         } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
-            currentAmmo = vegetables[0];
-            TurnOffAllSelectedUI();
-            beetSelected.SetActive(true);
+            if (currentAmmo.unlocked) {
+                currentAmmo = vegetables[0];
+                TurnOffAllSelectedUI();
+                beetSelected.SetActive(true);
+            }
         } else if (Input.GetKeyDown(KeyCode.Alpha5)) {
-            currentAmmo = vegetables[4];
-            TurnOffAllSelectedUI();
-            grapeSelected.SetActive(true);
+            if (currentAmmo.unlocked) {
+                currentAmmo = vegetables[4];
+                TurnOffAllSelectedUI();
+                blueberrySelected.SetActive(true);
+            }
         } else if (Input.GetKeyDown(KeyCode.Alpha6)) {
-            currentAmmo = vegetables[5];
-            TurnOffAllSelectedUI();
-            blueberrySelected.SetActive(true);
+            if (currentAmmo.unlocked) {
+                currentAmmo = vegetables[5];
+                TurnOffAllSelectedUI();
+                grapeSelected.SetActive(true);
+            }
         }
 
         if (Input.GetMouseButtonDown(0)) {
