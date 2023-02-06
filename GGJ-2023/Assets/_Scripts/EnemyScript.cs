@@ -111,7 +111,6 @@ public class EnemyScript : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Debug.Log("YEP");
             int randomSeed = Random.Range(0, seedList.Count - 1);
             Instantiate(seedList[randomSeed], transform.position, Quaternion.identity);
             Destroy(gameObject);

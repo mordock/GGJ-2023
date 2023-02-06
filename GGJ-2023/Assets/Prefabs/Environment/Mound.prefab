@@ -4911,4 +4911,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mound: {fileID: 2152211483598584822}
   isCopy: 0
-  reduceAmount: 0.04
+  reduceAmount: 0.06

@@ -16,18 +16,18 @@ public class VegetableList : MonoBehaviour
 
     }
 
-    public void UnlockVegetable(string name) {
+    public void UnlockVegetable(VegetableManager.VegetableType type) {
         foreach (Vegetable vegetable in vegetables) {
-            if (vegetable.vegetableName.Equals(name)) {
+            if (vegetable.type.Equals(type)) {
                 vegetable.unlocked = true;
                 break;
             }
         }
     }
 
-    public void IncreaseVegetableSeedNumber(string name, int amount) {
+    public void IncreaseVegetableSeedNumber(VegetableManager.VegetableType type, int amount) {
         foreach (Vegetable vegetable in vegetables) {
-            if (vegetable.vegetableName.Equals(name)) {
+            if (vegetable.type.Equals(type)) {
                 vegetable.currentSeedNumber += amount;
                 break;
             }
@@ -52,9 +52,9 @@ public class VegetableList : MonoBehaviour
         }
     }
 
-    public void DecreaseVegetableAmmoNumber(string name, int amount) {
+    public void DecreaseVegetableAmmoNumber(VegetableManager.VegetableType type, int amount) {
         foreach (Vegetable vegetable in vegetables) {
-            if (vegetable.vegetableName.Equals(name)) {
+            if (vegetable.type.Equals(type)) {
                 vegetable.currentAmmoNumber -= amount;
                 break;
             }

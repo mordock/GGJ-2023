@@ -13,10 +13,14 @@ public class CheckFarmTile : MonoBehaviour
     public GameObject carrotOne, potatoOne, onionOne, beetOne, grapeOne, blueOne;
 
     public GameObject farmEmpty;
+
     private bool panelIsOpen = false;
+    List<Vegetable> vegetableDataObjects;
     // Start is called before the first frame update
     void Start() {
         farmPanel.SetActive(false);
+
+        vegetableDataObjects = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
     }
 
     // Update is called once per frame
@@ -43,9 +47,8 @@ public class CheckFarmTile : MonoBehaviour
                             }
 
                             //fill UI with correct amount of tiles
-                            List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
                             int pressValue = 1;
-                            foreach (Vegetable vegetable in vegetables)
+                            foreach (Vegetable vegetable in vegetableDataObjects)
                             {
                                 if (vegetable.unlocked)
                                 {
@@ -66,8 +69,8 @@ public class CheckFarmTile : MonoBehaviour
                     }
                     else
                     {
-                        string name = hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName;
-                        if (name.Equals("Carrot"))
+                        VegetableManager.VegetableType plantedVegetableType = hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.type;
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Carrot))
                         {
                             //farm vegetable and get ammo
                             GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
@@ -75,7 +78,7 @@ public class CheckFarmTile : MonoBehaviour
                             Destroy(hit.transform.gameObject);
                             var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
                         }
-                        if (name.Equals("Beet"))
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Beet))
                         {
                             //farm vegetable and get ammo
                             GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
@@ -83,7 +86,7 @@ public class CheckFarmTile : MonoBehaviour
                             Destroy(hit.transform.gameObject);
                             var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
                         }
-                        if (name.Equals("Onion"))
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Onion))
                         {
                             //farm vegetable and get ammo
                             GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 10);
@@ -91,7 +94,7 @@ public class CheckFarmTile : MonoBehaviour
                             Destroy(hit.transform.gameObject);
                             var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
                         }
-                        if (name.Equals("Potato"))
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Potato))
                         {
                             //farm vegetable and get ammo
                             GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
@@ -99,7 +102,7 @@ public class CheckFarmTile : MonoBehaviour
                             Destroy(hit.transform.gameObject);
                             var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
                         }
-                        if (name.Equals("Blue Berry"))
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Berry))
                         {
                             //farm vegetable and get ammo
                             GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 40);
@@ -107,7 +110,7 @@ public class CheckFarmTile : MonoBehaviour
                             Destroy(hit.transform.gameObject);
                             var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
                         }
-                        if (name.Equals("Grape"))
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Grape))
                         {
                             //farm vegetable and get ammo
                             GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 10);
@@ -123,9 +126,8 @@ public class CheckFarmTile : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1)) {
                     List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
                     string chosenName = farmPanel.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-
                     foreach(Vegetable vegetable in vegetables) {
-                        if (vegetable.name.Equals(chosenName)) {
+                        if (vegetable.vegetableName.Equals(chosenName)) {
                             hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
                             farmPanel.SetActive(false);
                             panelIsOpen = false;

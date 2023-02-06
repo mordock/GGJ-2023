@@ -128,5 +128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3016efdd997da8642b66e0ca5ae776ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedType: Carrot
-  player: {fileID: 0}
+  seedType: 5

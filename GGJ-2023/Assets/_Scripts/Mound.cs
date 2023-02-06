@@ -37,10 +37,4 @@ public class Mound : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
         }
     }
-
-    //IEnumerator Spawn(float secs) {
-    //    GameObject newMound = Instantiate(mound);
-    //    newMound.GetComponent<Mound>().isCopy = true;
-    //    yield return new WaitForSeconds(secs);
-    //}
 }

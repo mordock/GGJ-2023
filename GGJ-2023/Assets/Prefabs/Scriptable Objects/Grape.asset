@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Grape
   m_EditorClassIdentifier: 
   vegetableType: 3
-  baseAmmo: 5
-  baseSeed: 50
+  baseAmmo: 50
+  baseSeed: 5
   unlocked: 1
   icon: {fileID: 21300000, guid: 8e4a732b47ae7cc4b82ded5f652b0708, type: 3}
