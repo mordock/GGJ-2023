@@ -9,12 +9,12 @@ public class PEWPEW : MonoBehaviour
     public Slider slider;
 
     [Header("bullet objects")]
-    public GameObject Carrot;
-    public GameObject Potato;
-    public GameObject Union;
-    public GameObject Beet;
-    public GameObject Blueberry;
-    public GameObject Grape;
+    public GameObject carrotBullet;
+    public GameObject potatoBullet;
+    public GameObject unionBullet;
+    public GameObject beetBullet;
+    public GameObject blueberryBullet;
+    public GameObject grapeBullet;
 
     [Header("bullet values")]
     public float carrotSpeed = 80;
@@ -55,7 +55,12 @@ public class PEWPEW : MonoBehaviour
     private void Start() {
         vegetableList = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>();
         vegetables = vegetableList.vegetables;
-        currentAmmo = vegetables[0];
+
+        TurnOffAllSelectedUI();
+
+        currentAmmo = vegetables[5];
+
+        grapeSelected.SetActive(true);
     }
     public void FixedUpdate() {
         bulletCooldown++;
@@ -97,20 +102,18 @@ public class PEWPEW : MonoBehaviour
                 blueberrySelected.SetActive(true);
             }
         } else if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            Debug.Log("MIEP");
             if (vegetables[5].unlocked) {
                 currentAmmo = vegetables[5];
                 TurnOffAllSelectedUI();
                 grapeSelected.SetActive(true);
-                Debug.Log("BIEP");
             }
         }
 
         if (Input.GetMouseButtonDown(0)) {
             if (canShoot) {
                 if (currentAmmo.vegetableName.Equals("Carrot") && currentAmmo.currentAmmoNumber > 0) {
-                    var bullet = Instantiate(Carrot, ProjectileSpawn.position, ProjectileSpawn.rotation * Quaternion.Euler(-90f, 0f, 0f));
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * carrotSpeed;
+                    var bullet = Instantiate(carrotBullet, ProjectileSpawn.position, ProjectileSpawn.rotation * Quaternion.Euler(-90f, 0f, 0f));
+                    //bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * carrotSpeed;
 
                     bulletCooldown = 0;
                     canShoot = false;
@@ -121,8 +124,8 @@ public class PEWPEW : MonoBehaviour
                 }
 
                 if (currentAmmo.vegetableName.Equals("Potato") && currentAmmo.currentAmmoNumber > 0) {
-                    var bullet = Instantiate(Potato, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * potatoSpeed;
+                    var bullet = Instantiate(potatoBullet, ProjectileSpawn.position, ProjectileSpawn.rotation);
+                    //bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * potatoSpeed;
 
                     bulletCooldown = 0;
                     canShoot = false;
@@ -133,8 +136,8 @@ public class PEWPEW : MonoBehaviour
                 }
 
                 if (currentAmmo.vegetableName.Equals("Onion") && currentAmmo.currentAmmoNumber > 0) {
-                    var bullet = Instantiate(Union, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * onionSpeed;
+                    var bullet = Instantiate(unionBullet, ProjectileSpawn.position, ProjectileSpawn.rotation);
+                    //bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * onionSpeed;
 
                     bulletCooldown = 0;
                     canShoot = false;
@@ -145,8 +148,8 @@ public class PEWPEW : MonoBehaviour
                 }
 
                 if (currentAmmo.vegetableName.Equals("Beet") && currentAmmo.currentAmmoNumber > 0) {
-                    var bullet = Instantiate(Beet, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * beetSpeed;
+                    var bullet = Instantiate(beetBullet, ProjectileSpawn.position, ProjectileSpawn.rotation);
+                    //bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * beetSpeed;
                     bullet.GetComponent<BulletScript>().beetExplosionTimer = beetExplosionTime;
 
                     bulletCooldown = 0;
@@ -158,8 +161,8 @@ public class PEWPEW : MonoBehaviour
                 }
 
                 if (currentAmmo.vegetableName.Equals("Grape") && currentAmmo.currentAmmoNumber > 0) {
-                    var bullet = Instantiate(Grape, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * grapeSpeed;
+                    var bullet = Instantiate(grapeBullet, ProjectileSpawn.position, ProjectileSpawn.rotation);
+                    bullet.GetComponent<BulletScript>().SetAngle(ProjectileSpawn.forward);
 
                     bulletCooldown = 0;
                     canShoot = false;
@@ -170,8 +173,8 @@ public class PEWPEW : MonoBehaviour
                 }
 
                 if (canShoot && currentAmmo.vegetableName.Equals("Blue Berry") && currentAmmo.currentAmmoNumber > 0) {
-                    var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                    bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * blueberrySpeed;
+                    var bullet = Instantiate(blueberryBullet, ProjectileSpawn.position, ProjectileSpawn.rotation);
+                    //bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * blueberrySpeed;
 
                     bulletCooldown = 0;
                     canShoot = false;
@@ -182,21 +185,21 @@ public class PEWPEW : MonoBehaviour
                 }
             }
         }
-        if (Input.GetMouseButton(0))
-        {
-            if (canShoot && currentAmmo.vegetableName.Equals("Blue Berry") && currentAmmo.currentAmmoNumber > 0)
-            {
-                var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * blueberrySpeed;
+        //if (Input.GetMouseButton(0))
+        //{
+        //    if (canShoot && currentAmmo.vegetableName.Equals("Blue Berry") && currentAmmo.currentAmmoNumber > 0)
+        //    {
+        //        var bullet = Instantiate(Blueberry, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        //        bullet.GetComponent<Rigidbody>().velocity = ProjectileSpawn.forward * blueberrySpeed;
 
-                bulletCooldown = 0;
-                canShoot = false;
-                currentCooldown = blueberryCooldown;
-                slider.maxValue = currentCooldown;
+        //        bulletCooldown = 0;
+        //        canShoot = false;
+        //        currentCooldown = blueberryCooldown;
+        //        slider.maxValue = currentCooldown;
 
-                vegetableList.DecreaseVegetableAmmoNumber("Blue Berry", 1);
-            }
-        }
+        //        vegetableList.DecreaseVegetableAmmoNumber("Blue Berry", 1);
+        //    }
+        //}
     }
 
     void TurnOffAllSelectedUI() {
@@ -206,6 +209,18 @@ public class PEWPEW : MonoBehaviour
         beetSelected.SetActive(false);
         blueberrySelected.SetActive(false);
         grapeSelected.SetActive(false);
+    }
+
+    void Shoot(GameObject bulletObject, int cooldown) {
+        var bullet = Instantiate(bulletObject, ProjectileSpawn.position, ProjectileSpawn.rotation);
+        bullet.GetComponent<BulletScript>().SetAngle(ProjectileSpawn.forward);
+
+        bulletCooldown = 0;
+        canShoot = false;
+        currentCooldown = cooldown;
+        slider.maxValue = currentCooldown;
+
+        vegetableList.DecreaseVegetableAmmoNumber("Beet", 1);
     }
 }
 

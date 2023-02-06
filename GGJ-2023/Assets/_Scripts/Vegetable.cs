@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Vegetable : MonoBehaviour
 {
+    public VegetableManager.VegetableType type;
+
     public string vegetableName;
     public string multipleVegetableName;
 
@@ -11,8 +13,6 @@ public class Vegetable : MonoBehaviour
     public int currentAmmoNumber;
 
     public bool unlocked;
-
-    public float vegetableLife = 60;
 
     void Start()
     {
@@ -22,11 +22,5 @@ public class Vegetable : MonoBehaviour
 
     void Update()
     {
-        vegetableLife -= Time.fixedDeltaTime;
-
-        if (vegetableLife <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }

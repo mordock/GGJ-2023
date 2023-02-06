@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 8672765691684847346}
   - component: {fileID: -4496609899340690091}
   m_Layer: 0
-  m_Name: carrot
+  m_Name: Carrot_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,8 +484,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f751f52ff15aef41a9ea4e54868c015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vegetableType: 5
   bulletDamage: 20
   beetExplosionTimer: -10
+  speed: 80
 --- !u!65 &8672765691684847346
 BoxCollider:
   m_ObjectHideFlags: 0

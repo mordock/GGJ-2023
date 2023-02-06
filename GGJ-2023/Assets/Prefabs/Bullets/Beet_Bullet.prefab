@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 7856922969987811531}
   - component: {fileID: 3613277213610962980}
   - component: {fileID: 5292272797290492056}
-  - component: {fileID: 2293140013654654907}
   - component: {fileID: 7635698890494074789}
   m_Layer: 0
-  m_Name: beet
+  m_Name: Beet_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,8 +70,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f751f52ff15aef41a9ea4e54868c015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vegetableType: 2
   bulletDamage: 20
   beetExplosionTimer: 0
+  speed: 20
 --- !u!65 &5292272797290492056
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86,19 +87,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1298523, y: 0.31921944, z: 0.11751723}
   m_Center: {x: 0.2446847, y: 0.21214344, z: 0.0005778074}
---- !u!135 &2293140013654654907
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147216103921104886}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0.17, z: 0}
 --- !u!82 &7635698890494074789
 AudioSource:
   m_ObjectHideFlags: 0

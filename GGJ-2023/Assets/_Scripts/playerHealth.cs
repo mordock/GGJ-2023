@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class playerHealth : MonoBehaviour
 {
     public float health = 1;
-    private float invincibilityTimer;
     public Slider slider; 
 
     void Start()
@@ -26,7 +25,6 @@ public class playerHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("Game Over");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
