@@ -54,9 +54,7 @@ public class CheckFarmTile : MonoBehaviour
                                 {
                                     GameObject tile = Instantiate(vegetableOption, farmPanel.transform.GetChild(0));
                                     //fill in values of tile
-                                    tile.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = vegetable.vegetableName;
-                                    tile.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "Amount: " + vegetable.currentSeedNumber;
-                                    tile.transform.GetChild(0).GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = "Press: " + pressValue;
+                                    tile.GetComponent<VegetableUiOption>().FillInUiOptions(pressValue, vegetable);
                                     pressValue++;
                                 }
                             }
@@ -69,6 +67,7 @@ public class CheckFarmTile : MonoBehaviour
                     }
                     else
                     {
+                        //get ammo from fully grown farm tile
                         VegetableManager.VegetableType plantedVegetableType = hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.type;
                         if (plantedVegetableType.Equals(VegetableManager.VegetableType.Carrot))
                         {
@@ -124,17 +123,7 @@ public class CheckFarmTile : MonoBehaviour
 
             if (panelIsOpen) {
                 if (Input.GetKeyDown(KeyCode.Alpha1)) {
-                    List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
-                    string chosenName = farmPanel.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-                    foreach(Vegetable vegetable in vegetables) {
-                        if (vegetable.vegetableName.Equals(chosenName)) {
-                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
-                            farmPanel.SetActive(false);
-                            panelIsOpen = false;
-                            ReplaceTile(vegetable, hit);
-                            break;
-                        }
-                    }
+                    ReplaceTile(hit, 0);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2)) {
@@ -146,7 +135,7 @@ public class CheckFarmTile : MonoBehaviour
                             hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
                             farmPanel.SetActive(false);
                             panelIsOpen = false;
-                            ReplaceTile(vegetable, hit);
+                            ChangeToTileOne(vegetable, hit);
                             break;
                         }
                     }
@@ -161,7 +150,7 @@ public class CheckFarmTile : MonoBehaviour
                             hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
                             farmPanel.SetActive(false);
                             panelIsOpen = false;
-                            ReplaceTile(vegetable, hit);
+                            ChangeToTileOne(vegetable, hit);
                             break;
                         }
                     }
@@ -176,7 +165,7 @@ public class CheckFarmTile : MonoBehaviour
                             hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
                             farmPanel.SetActive(false);
                             panelIsOpen = false;
-                            ReplaceTile(vegetable, hit);
+                            ChangeToTileOne(vegetable, hit);
                             break;
                         }
                     }
@@ -191,7 +180,7 @@ public class CheckFarmTile : MonoBehaviour
                             hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
                             farmPanel.SetActive(false);
                             panelIsOpen = false;
-                            ReplaceTile(vegetable, hit);
+                            ChangeToTileOne(vegetable, hit);
                             break;
                         }
                     }
@@ -206,18 +195,29 @@ public class CheckFarmTile : MonoBehaviour
                             hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
                             farmPanel.SetActive(false);
                             panelIsOpen = false;
-                            ReplaceTile(vegetable, hit);
+                            ChangeToTileOne(vegetable, hit);
                             break;
                         }
                     }
                 }
             }
-        } else {
-            //Debug.Log("nothing");
         }
     }
 
-    public void ReplaceTile(Vegetable vegetableToChangeTo, RaycastHit hit) {
+    public void ReplaceTile(RaycastHit hit, int objectPos) {
+        VegetableManager.VegetableType choseType = farmPanel.transform.GetChild(0).GetChild(objectPos).GetComponent<VegetableUiOption>().currentVegetable.type;
+        foreach (Vegetable vegetable in vegetableDataObjects) {
+            if (vegetable.type.Equals(choseType)) {
+                hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
+                farmPanel.SetActive(false);
+                panelIsOpen = false;
+                ChangeToTileOne(vegetable, hit);
+                break;
+            }
+        }
+    }
+
+    public void ChangeToTileOne(Vegetable vegetableToChangeTo, RaycastHit hit) {
         if (vegetableToChangeTo.vegetableName.Equals("Carrot")) {
             Vector3 pos = hit.transform.position;
             var farm = Instantiate(carrotOne, pos, Quaternion.identity);
