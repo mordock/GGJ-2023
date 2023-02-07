@@ -71,137 +71,66 @@ public class CheckFarmTile : MonoBehaviour
                         VegetableManager.VegetableType plantedVegetableType = hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.type;
                         if (plantedVegetableType.Equals(VegetableManager.VegetableType.Carrot))
                         {
-                            //farm vegetable and get ammo
-                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
-                            Vector3 pos = hit.transform.position;
-                            Destroy(hit.transform.gameObject);
-                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                             FarmTile(hit);
                         }
                         if (plantedVegetableType.Equals(VegetableManager.VegetableType.Beet))
                         {
-                            //farm vegetable and get ammo
-                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
-                            Vector3 pos = hit.transform.position;
-                            Destroy(hit.transform.gameObject);
-                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                            FarmTile(hit);
                         }
                         if (plantedVegetableType.Equals(VegetableManager.VegetableType.Onion))
                         {
-                            //farm vegetable and get ammo
-                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 10);
-                            Vector3 pos = hit.transform.position;
-                            Destroy(hit.transform.gameObject);
-                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                            FarmTile(hit);
                         }
                         if (plantedVegetableType.Equals(VegetableManager.VegetableType.Potato))
                         {
-                            //farm vegetable and get ammo
-                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
-                            Vector3 pos = hit.transform.position;
-                            Destroy(hit.transform.gameObject);
-                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                            FarmTile(hit);
                         }
                         if (plantedVegetableType.Equals(VegetableManager.VegetableType.Berry))
                         {
-                            //farm vegetable and get ammo
-                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 40);
-                            Vector3 pos = hit.transform.position;
-                            Destroy(hit.transform.gameObject);
-                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                            FarmTile(hit);
                         }
                         if (plantedVegetableType.Equals(VegetableManager.VegetableType.Grape))
                         {
-                            //farm vegetable and get ammo
-                            GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 10);
-                            Vector3 pos = hit.transform.position;
-                            Destroy(hit.transform.gameObject);
-                            var farm = Instantiate(farmEmpty, pos, Quaternion.identity);
+                            FarmTile(hit);
                         }
                     }
                 }
             }
 
+            //plant something if farm UI is opened
             if (panelIsOpen) {
                 if (Input.GetKeyDown(KeyCode.Alpha1)) {
                     ReplaceTile(hit, 0);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2)) {
-                    List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
-                    string chosenName = farmPanel.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-
-                    foreach (Vegetable vegetable in vegetables) {
-                        if (vegetable.name.Equals(chosenName)) {
-                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
-                            farmPanel.SetActive(false);
-                            panelIsOpen = false;
-                            ChangeToTileOne(vegetable, hit);
-                            break;
-                        }
-                    }
+                    ReplaceTile(hit, 1);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha3)) {
-                    List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
-                    string chosenName = farmPanel.transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-
-                    foreach (Vegetable vegetable in vegetables) {
-                        if (vegetable.name.Equals(chosenName)) {
-                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
-                            farmPanel.SetActive(false);
-                            panelIsOpen = false;
-                            ChangeToTileOne(vegetable, hit);
-                            break;
-                        }
-                    }
+                    ReplaceTile(hit, 2);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha4)) {
-                    List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
-                    string chosenName = farmPanel.transform.GetChild(0).GetChild(3).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-
-                    foreach (Vegetable vegetable in vegetables) {
-                        if (vegetable.name.Equals(chosenName)) {
-                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
-                            farmPanel.SetActive(false);
-                            panelIsOpen = false;
-                            ChangeToTileOne(vegetable, hit);
-                            break;
-                        }
-                    }
+                    ReplaceTile(hit, 3);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha5)) {
-                    List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
-                    string chosenName = farmPanel.transform.GetChild(0).GetChild(4).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-
-                    foreach (Vegetable vegetable in vegetables) {
-                        if (vegetable.name.Equals(chosenName)) {
-                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
-                            farmPanel.SetActive(false);
-                            panelIsOpen = false;
-                            ChangeToTileOne(vegetable, hit);
-                            break;
-                        }
-                    }
+                    ReplaceTile(hit, 4);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Alpha6)) {
-                    List<Vegetable> vegetables = GameObject.Find("GameManager").gameObject.GetComponent<VegetableList>().vegetables;
-                    string chosenName = farmPanel.transform.GetChild(0).GetChild(6).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
-
-                    foreach (Vegetable vegetable in vegetables) {
-                        if (vegetable.name.Equals(chosenName)) {
-                            hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
-                            farmPanel.SetActive(false);
-                            panelIsOpen = false;
-                            ChangeToTileOne(vegetable, hit);
-                            break;
-                        }
-                    }
+                    ReplaceTile(hit, 5);
                 }
             }
         }
+    }
+
+    public void FarmTile(RaycastHit hit) {
+        GameObject.Find("GameManager").GetComponent<VegetableList>().IncreaseVegetableAmmoNumber(hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.vegetableName, 5);
+        Vector3 pos = hit.transform.position;
+        Destroy(hit.transform.gameObject);
+        Instantiate(farmEmpty, pos, Quaternion.identity);
     }
 
     public void ReplaceTile(RaycastHit hit, int objectPos) {

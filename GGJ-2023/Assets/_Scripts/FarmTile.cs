@@ -5,6 +5,7 @@ using UnityEngine;
 public class FarmTile : MonoBehaviour
 {
     public float Health = 40;
+    public int growthTime;
 
     public Vegetable currentVegetable;
     [HideInInspector]
@@ -22,7 +23,7 @@ public class FarmTile : MonoBehaviour
     void Update() {
         if (currentVegetable != null) {
             if (currentLevel < 3) {
-                StartCoroutine(Grow(10));
+                StartCoroutine(Grow(growthTime));
             }
         }
     }

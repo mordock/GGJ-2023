@@ -2765,7 +2765,7 @@ GameObject:
   - component: {fileID: 66265906}
   - component: {fileID: 66265905}
   m_Layer: 5
-  m_Name: UNION
+  m_Name: Onion_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5577,7 +5577,7 @@ GameObject:
   - component: {fileID: 180045485}
   - component: {fileID: 180045484}
   m_Layer: 5
-  m_Name: BEET
+  m_Name: Beet_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26960,7 +26960,7 @@ GameObject:
   - component: {fileID: 983621404}
   - component: {fileID: 983621403}
   m_Layer: 5
-  m_Name: BLUEBERRY
+  m_Name: BlueBerry_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28920,7 +28920,6 @@ MonoBehaviour:
   beetBullet: {fileID: 147216103921104886, guid: a0703bd7cb827de4086a8ba8c5668e90, type: 3}
   blueberryBullet: {fileID: 9212685075761361347, guid: 2f6364aead8e91a47a8b81e4e1b7a3e5, type: 3}
   grapeBullet: {fileID: 1543885629634336927, guid: 2ebaab3a2b1e6d04ea5f2ddfa889ca96, type: 3}
-  bulletreleaselimit: 1
   carrotCooldown: 100
   potatoCooldown: 50
   onionCooldown: 30
@@ -28933,7 +28932,6 @@ MonoBehaviour:
   beetSelected: {fileID: 180045483}
   blueberrySelected: {fileID: 983621402}
   grapeSelected: {fileID: 1918510206}
-  currentAmmo: {fileID: 0}
 --- !u!114 &1081319312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45197,7 +45195,7 @@ GameObject:
   - component: {fileID: 1655627759}
   - component: {fileID: 1655627758}
   m_Layer: 5
-  m_Name: Carrot
+  m_Name: Carrot_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51756,7 +51754,7 @@ GameObject:
   - component: {fileID: 1918510208}
   - component: {fileID: 1918510207}
   m_Layer: 5
-  m_Name: GRAPE
+  m_Name: Grape_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54275,6 +54273,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 41167404266754f4fb88dc2ab3f8db5f, type: 2}
   - {fileID: 11400000, guid: ce699a20950dee94faf5e5fff713175b, type: 2}
   - {fileID: 11400000, guid: d7ef7459bdcc26b4dbf3c1796757903d, type: 2}
+  carrotSelected: {fileID: 1655627757}
+  potatoSelected: {fileID: 2086276439}
+  onionSelected: {fileID: 66265904}
+  beetSelected: {fileID: 180045483}
+  blueberrySelected: {fileID: 983621402}
+  grapeSelected: {fileID: 1918510206}
 --- !u!1001 &1998601690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57094,7 +57098,7 @@ GameObject:
   - component: {fileID: 2086276441}
   - component: {fileID: 2086276440}
   m_Layer: 5
-  m_Name: Potato
+  m_Name: Potato_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

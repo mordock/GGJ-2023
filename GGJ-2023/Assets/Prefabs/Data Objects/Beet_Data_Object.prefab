@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  location: 4
   vegetableName: Beet
   multipleVegetableName: Beets
   currentSeedNumber: 0

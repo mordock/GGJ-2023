@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 20
+  growthTime: 10
   currentVegetable: {fileID: 0}
   currentLevel: 1
   carrotTwo: {fileID: 737156677300802479}

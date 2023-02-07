@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,9 +17,7 @@ public class PEWPEW : MonoBehaviour
     public GameObject blueberryBullet;
     public GameObject grapeBullet;
 
-    [Header("bullet values")]
     private float bulletCooldown = 0;
-    public float bulletreleaselimit = 0;
 
     [Header("cooldowns")]
     public int carrotCooldown;
@@ -40,6 +39,8 @@ public class PEWPEW : MonoBehaviour
     private List<Vegetable> vegetables;
     private VegetableList vegetableList;
 
+    private Vegetable alpha1Vegetable, alpha2Vegetable, alpha3Vegetable, alpha4Vegetable, alpha5Vegetable, alpha6Vegetable;
+
     private bool canShoot;
     private int currentCooldown;
 
@@ -52,7 +53,10 @@ public class PEWPEW : MonoBehaviour
         currentAmmo = vegetables[5];
 
         grapeSelected.SetActive(true);
+
+        FillAlphaVegetables();
     }
+
     public void FixedUpdate() {
         bulletCooldown++;
         if (bulletCooldown >= currentCooldown) {
@@ -63,8 +67,8 @@ public class PEWPEW : MonoBehaviour
         cooldownSlider.value = bulletCooldown;
         //fix with extra rule so it doesn't mess with farm tiles
         if (Input.GetKeyDown(KeyCode.Alpha6)) {
-            if (vegetables[1].unlocked) {
-                currentAmmo = vegetables[1];
+            if (alpha6Vegetable.unlocked) {
+                currentAmmo = alpha6Vegetable;
                 TurnOffAllSelectedUI();
                 carrotSelected.SetActive(true);
             }
@@ -151,5 +155,33 @@ public class PEWPEW : MonoBehaviour
 
         vegetableList.DecreaseVegetableAmmoNumber(vegetable.type, 1);
     }
-}
 
+    private void FillAlphaVegetables() {
+        foreach (Vegetable vegetable in vegetables) {
+            if (vegetable.location.Equals(VegetableManager.KeyboardLocation.Alpha1)) {
+                alpha1Vegetable = vegetable;
+                break;
+            }
+            if (vegetable.location.Equals(VegetableManager.KeyboardLocation.Alpha2)) {
+                alpha2Vegetable = vegetable;
+                break;
+            }
+            if (vegetable.location.Equals(VegetableManager.KeyboardLocation.Alpha3)) {
+                alpha3Vegetable = vegetable;
+                break;
+            }
+            if (vegetable.location.Equals(VegetableManager.KeyboardLocation.Alpha4)) {
+                alpha4Vegetable = vegetable;
+                break;
+            }
+            if (vegetable.location.Equals(VegetableManager.KeyboardLocation.Alpha5)) {
+                alpha5Vegetable = vegetable;
+                break;
+            }
+            if (vegetable.location.Equals(VegetableManager.KeyboardLocation.Alpha6)) {
+                alpha6Vegetable = vegetable;
+                break;
+            }
+        }
+    }
+}

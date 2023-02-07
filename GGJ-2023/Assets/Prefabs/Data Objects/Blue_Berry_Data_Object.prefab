@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
+  location: 2
   vegetableName: Blue Berry
   multipleVegetableName: Blue Berries
   currentSeedNumber: 0

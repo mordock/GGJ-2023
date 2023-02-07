@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 21.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 15.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae1cba03a8837649bbcdf37916cf34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentVegetable: {fileID: 0}
 --- !u!1 &2842411473720555140
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,8 +405,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -61.290638}
-  m_SizeDelta: {x: -10, y: 112.5814}
+  m_AnchoredPosition: {x: 0, y: 29.0323}
+  m_SizeDelta: {x: -10, y: 58.0646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2842411473720555139
 CanvasRenderer:
@@ -564,7 +565,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 15.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed0b017dfc76b046b0c705751f4f2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  location: 3
   vegetableName: Potato
   multipleVegetableName: Potatoes
   currentSeedNumber: 0
   currentAmmoNumber: 0
   unlocked: 0
-  vegetableLife: 60

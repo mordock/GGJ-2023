@@ -6,6 +6,14 @@ public class VegetableManager : MonoBehaviour
 {
     public List<VegetableBaseValue> baseValueList;
 
+    [Header("UI Elements")]
+    public GameObject carrotSelected;
+    public GameObject potatoSelected;
+    public GameObject onionSelected;
+    public GameObject beetSelected;
+    public GameObject blueberrySelected;
+    public GameObject grapeSelected;
+
     private List<Vegetable> vegetableDataObjects;
     public enum VegetableType
     {
@@ -15,6 +23,16 @@ public class VegetableManager : MonoBehaviour
         Grape,
         Berry,
         Carrot
+    }
+
+    public enum KeyboardLocation
+    {
+        Alpha1,
+        Alpha2, 
+        Alpha3,
+        Alpha4,
+        Alpha5,
+        Alpha6
     }
     // Start is called before the first frame update
     void Start() {

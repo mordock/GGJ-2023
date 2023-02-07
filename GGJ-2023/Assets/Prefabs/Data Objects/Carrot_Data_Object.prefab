@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
+  location: 5
   vegetableName: Carrot
   multipleVegetableName: Carrots
   currentSeedNumber: 0
