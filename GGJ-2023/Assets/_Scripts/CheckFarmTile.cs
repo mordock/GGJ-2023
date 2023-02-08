@@ -29,14 +29,11 @@ public class CheckFarmTile : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit)) {
             if (hit.transform.gameObject.tag.Equals("FarmTile")) {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    if (hit.transform.gameObject.GetComponent<FarmTile>().currentLevel < 2)
-                    {
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    if (hit.transform.gameObject.GetComponent<FarmTile>().currentLevel < 2) {
                         //this doens't check for distance, I know, shut up
                         //open ui
-                        if (!panelIsOpen)
-                        {
+                        if (!panelIsOpen) {
                             farmPanel.SetActive(true);
                             panelIsOpen = true;
 
@@ -48,49 +45,37 @@ public class CheckFarmTile : MonoBehaviour
 
                             //fill UI with correct amount of tiles
                             int pressValue = 1;
-                            foreach (Vegetable vegetable in vegetableDataObjects)
-                            {
-                                if (vegetable.unlocked)
-                                {
+                            foreach (Vegetable vegetable in vegetableDataObjects) {
+                                if (vegetable.unlocked) {
                                     GameObject tile = Instantiate(vegetableOption, farmPanel.transform.GetChild(0));
                                     //fill in values of tile
                                     tile.GetComponent<VegetableUiOption>().FillInUiOptions(pressValue, vegetable);
                                     pressValue++;
                                 }
                             }
-                        }
-                        else
-                        {
+                        } else {
                             farmPanel.SetActive(false);
                             panelIsOpen = false;
                         }
-                    }
-                    else
-                    {
+                    } else {
                         //get ammo from fully grown farm tile
                         VegetableManager.VegetableType plantedVegetableType = hit.transform.gameObject.GetComponent<FarmTile>().currentVegetable.type;
-                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Carrot))
-                        {
-                             FarmTile(hit);
-                        }
-                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Beet))
-                        {
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Carrot)) {
                             FarmTile(hit);
                         }
-                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Onion))
-                        {
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Beet)) {
                             FarmTile(hit);
                         }
-                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Potato))
-                        {
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Onion)) {
                             FarmTile(hit);
                         }
-                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Berry))
-                        {
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Potato)) {
                             FarmTile(hit);
                         }
-                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Grape))
-                        {
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Berry)) {
+                            FarmTile(hit);
+                        }
+                        if (plantedVegetableType.Equals(VegetableManager.VegetableType.Grape)) {
                             FarmTile(hit);
                         }
                     }
@@ -134,14 +119,18 @@ public class CheckFarmTile : MonoBehaviour
     }
 
     public void ReplaceTile(RaycastHit hit, int objectPos) {
-        VegetableManager.VegetableType choseType = farmPanel.transform.GetChild(0).GetChild(objectPos).GetComponent<VegetableUiOption>().currentVegetable.type;
+        VegetableManager.VegetableType chosenType = farmPanel.transform.GetChild(0).GetChild(objectPos).GetComponent<VegetableUiOption>().currentVegetable.type;
         foreach (Vegetable vegetable in vegetableDataObjects) {
-            if (vegetable.type.Equals(choseType)) {
-                hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
-                farmPanel.SetActive(false);
-                panelIsOpen = false;
-                ChangeToTileOne(vegetable, hit);
-                break;
+            if (vegetable.type.Equals(chosenType)) {
+                if (vegetable.currentSeedNumber > 0) {
+                    hit.transform.gameObject.GetComponent<FarmTile>().PlantTile(vegetable);
+                    farmPanel.SetActive(false);
+                    panelIsOpen = false;
+                    ChangeToTileOne(vegetable, hit);
+                    break;
+                } else {
+                    Debug.Log("not enough seeds popup");
+                }
             }
         }
     }
