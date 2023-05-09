@@ -45,8 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  location: 0
+  selectedUI: {fileID: 0}
   vegetableName: Grape
   multipleVegetableName: Grapes
-  currentSeedNumber: 5
-  currentAmmoNumber: 50
-  unlocked: 1
+  currentSeedNumber: 0
+  currentAmmoNumber: 0
+  currentUnlocked: 0
+  baseAmmo: 50
+  baseSeed: 5
+  baseUnlocked: 1

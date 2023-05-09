@@ -46,8 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   location: 1
+  selectedUI: {fileID: 0}
   vegetableName: Onion
   multipleVegetableName: Onions
   currentSeedNumber: 0
   currentAmmoNumber: 0
-  unlocked: 0
+  currentUnlocked: 0
+  baseAmmo: 0
+  baseSeed: 3
+  baseUnlocked: 1

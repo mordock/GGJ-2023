@@ -15,7 +15,12 @@ public class Vegetable : MonoBehaviour
     public int currentSeedNumber;
     public int currentAmmoNumber;
 
-    public bool unlocked;
+    public bool currentUnlocked;
+
+    [Header("Game Start Values")]
+    public int baseAmmo;
+    public int baseSeed;
+    public bool baseUnlocked;
 
     void Start()
     {

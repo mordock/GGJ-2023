@@ -45,8 +45,8 @@ public class FarmTile : MonoBehaviour
     }
 
     public void ReplaceTile(Vegetable vegetableToChangeTo) {
+        Vector3 pos = transform.position;
         if (vegetableToChangeTo.vegetableName.Equals("Carrot")) {
-            Vector3 pos = transform.position;
             if (currentLevel.Equals(1)) {
                 var farm = Instantiate(carrotTwo, pos, Quaternion.identity);
                 farm.GetComponent<FarmTile>().currentVegetable = vegetableToChangeTo;
@@ -58,7 +58,6 @@ public class FarmTile : MonoBehaviour
             }
         }
         if (vegetableToChangeTo.vegetableName.Equals("Onion")) {
-            Vector3 pos = transform.position;
             if (currentLevel.Equals(1)) {
                 var farm = Instantiate(onionTwo, pos, Quaternion.identity);
                 farm.GetComponent<FarmTile>().currentVegetable = vegetableToChangeTo;
@@ -70,7 +69,6 @@ public class FarmTile : MonoBehaviour
             }
         }
         if (vegetableToChangeTo.vegetableName.Equals("Beet")) {
-            Vector3 pos = transform.position;
             if (currentLevel.Equals(1)) {
                 var farm = Instantiate(beetTwo, pos, Quaternion.identity);
                 farm.GetComponent<FarmTile>().currentVegetable = vegetableToChangeTo;
@@ -82,7 +80,6 @@ public class FarmTile : MonoBehaviour
             }
         }
         if (vegetableToChangeTo.vegetableName.Equals("Potato")) {
-            Vector3 pos = transform.position;
             if (currentLevel.Equals(1)) {
                 var farm = Instantiate(potatoTwo, pos, Quaternion.identity);
                 farm.GetComponent<FarmTile>().currentVegetable = vegetableToChangeTo;
@@ -94,7 +91,6 @@ public class FarmTile : MonoBehaviour
             }
         }
         if (vegetableToChangeTo.vegetableName.Equals("Grape")) {
-            Vector3 pos = transform.position;
             if (currentLevel.Equals(1)) {
                 var farm = Instantiate(grapeTwo, pos, Quaternion.identity);
                 farm.GetComponent<FarmTile>().currentVegetable = vegetableToChangeTo;
@@ -106,7 +102,6 @@ public class FarmTile : MonoBehaviour
             }
         }
         if (vegetableToChangeTo.vegetableName.Equals("Blue Berry")) {
-            Vector3 pos = transform.position;
             if (currentLevel.Equals(1)) {
                 var farm = Instantiate(blueTwo, pos, Quaternion.identity);
                 farm.GetComponent<FarmTile>().currentVegetable = vegetableToChangeTo;

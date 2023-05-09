@@ -19,7 +19,7 @@ public class VegetableList : MonoBehaviour
     public void UnlockVegetable(VegetableManager.VegetableType type) {
         foreach (Vegetable vegetable in vegetables) {
             if (vegetable.type.Equals(type)) {
-                vegetable.unlocked = true;
+                vegetable.currentUnlocked = true;
                 break;
             }
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0036296765, g: 0.0043563927, b: 0.005767824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2724,21 +2724,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileSpawn: {fileID: 1813258012}
-  slider: {fileID: 1335240237}
-  Carrot: {fileID: 5942767767431770276, guid: 39f50487557f52f43a647c2f8a9d4364, type: 3}
-  Potato: {fileID: 6730846482597628247, guid: a0f5b1d228a593945a171996b41f58d8, type: 3}
-  Union: {fileID: 5438795797274079363, guid: 5fca98047fcecdf4386c0553fa6851c0, type: 3}
-  Beet: {fileID: 147216103921104886, guid: a0703bd7cb827de4086a8ba8c5668e90, type: 3}
-  Blueberry: {fileID: 9212685075761361347, guid: 2f6364aead8e91a47a8b81e4e1b7a3e5, type: 3}
-  Grape: {fileID: 1543885629634336927, guid: 2ebaab3a2b1e6d04ea5f2ddfa889ca96, type: 3}
-  carrotSpeed: 80
-  potatoSpeed: 12
-  onionSpeed: 20
-  beetSpeed: 20
-  blueberrySpeed: 30
-  grapeSpeed: 30
-  bulletCooldown: 1
-  bulletreleaselimit: 1
+  cooldownSlider: {fileID: 0}
+  carrotBullet: {fileID: 0}
+  potatoBullet: {fileID: 0}
+  unionBullet: {fileID: 0}
+  beetBullet: {fileID: 0}
+  blueberryBullet: {fileID: 0}
+  grapeBullet: {fileID: 0}
   carrotCooldown: 100
   potatoCooldown: 50
   onionCooldown: 30
@@ -2751,7 +2743,6 @@ MonoBehaviour:
   beetSelected: {fileID: 1162000028}
   blueberrySelected: {fileID: 13418437}
   grapeSelected: {fileID: 90192026}
-  currentAmmo: {fileID: 0}
 --- !u!114 &476922737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6633,6 +6624,12 @@ MonoBehaviour:
   potatoAmmo: {fileID: 828512126}
   grapeAmmo: {fileID: 2131160011}
   BlueAmmo: {fileID: 376394380}
+  carrotSeeds: {fileID: 0}
+  onionSeeds: {fileID: 0}
+  beetSeeds: {fileID: 0}
+  potatoSeeds: {fileID: 0}
+  grapeSeeds: {fileID: 0}
+  blueSeeds: {fileID: 0}
 --- !u!1 &2015937299
 GameObject:
   m_ObjectHideFlags: 0

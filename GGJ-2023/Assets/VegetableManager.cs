@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class VegetableManager : MonoBehaviour
 {
-    public List<VegetableBaseValue> baseValueList;
-
     [Header("UI Elements")]
     public GameObject carrotSelected;
     public GameObject potatoSelected;
@@ -28,7 +26,7 @@ public class VegetableManager : MonoBehaviour
     public enum KeyboardLocation
     {
         Alpha1,
-        Alpha2, 
+        Alpha2,
         Alpha3,
         Alpha4,
         Alpha5,
@@ -38,14 +36,10 @@ public class VegetableManager : MonoBehaviour
     void Start() {
         vegetableDataObjects = GetComponent<VegetableList>().vegetables;
         //reset values at beginning of game
-        foreach(Vegetable vegetable in vegetableDataObjects) {
-            foreach(VegetableBaseValue baseValue in baseValueList) {
-                if (vegetable.type.Equals(baseValue.vegetableType)) {
-                    vegetable.currentAmmoNumber = baseValue.baseAmmo;
-                    vegetable.currentSeedNumber = baseValue.baseSeed;
-                    vegetable.unlocked = baseValue.unlocked;
-                }
-            }
+        foreach (Vegetable vegetable in vegetableDataObjects) {
+            vegetable.currentAmmoNumber = vegetable.baseAmmo;
+            vegetable.currentSeedNumber = vegetable.baseSeed;
+            vegetable.currentUnlocked = vegetable.baseUnlocked;
         }
     }
 

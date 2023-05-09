@@ -46,7 +46,7 @@ public class CheckFarmTile : MonoBehaviour
                             //fill UI with correct amount of tiles
                             int pressValue = 1;
                             foreach (Vegetable vegetable in vegetableDataObjects) {
-                                if (vegetable.unlocked) {
+                                if (vegetable.currentUnlocked) {
                                     GameObject tile = Instantiate(vegetableOption, farmPanel.transform.GetChild(0));
                                     //fill in values of tile
                                     tile.GetComponent<VegetableUiOption>().FillInUiOptions(pressValue, vegetable);
