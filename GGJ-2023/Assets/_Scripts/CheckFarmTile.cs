@@ -29,6 +29,7 @@ public class CheckFarmTile : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit)) {
             if (hit.transform.gameObject.tag.Equals("FarmTile")) {
+                Debug.Log("HIT");
                 if (Input.GetKeyDown(KeyCode.E)) {
                     if (hit.transform.gameObject.GetComponent<FarmTile>().currentLevel < 2) {
                         //this doens't check for distance, I know, shut up
